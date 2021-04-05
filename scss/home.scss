@@ -1,0 +1,50 @@
+@import "colors";
+.helloSection {
+  min-height: calc(100vh - 56px);
+  @media (max-width: 1024px) {
+    min-height: 100vh;
+    border-bottom: 1px solid $secondary;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(212, 181, 158, 0.7);
+  }
+  h1, div {
+    z-index: 1;
+    position: relative;
+  }
+}
+
+.pricesCard {
+  ul {
+    list-style-type: none;
+    padding-left: 25px;
+  }
+  li {
+    text-align: left;
+    position: relative;
+    margin-bottom: 10px;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 12px;
+      left: -18px;
+      width: 8px;
+      height: 1px;
+      background-color: $primary;
+    }
+  }
+}

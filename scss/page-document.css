@@ -1,0 +1,23 @@
+.documentPage {
+  padding-top: 60px;
+  padding-top: 60px;
+}
+@media (max-width: 1080px) {
+  .documentPage {
+    padding-top: calc(30px + 30 * ((100vw - 320px) / 760));
+  }
+}
+.documentPage h1, .documentPage h3 {
+  text-align: center !important;
+}
+.documentPage h1 {
+  margin-bottom: 40px;
+}
+.documentPage h3 {
+  margin: 45px 0;
+}
+.documentPage h4 {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=page-document.css.map */

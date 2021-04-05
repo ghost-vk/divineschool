@@ -1,0 +1,84 @@
+@import "colors";
+.coursePage {
+  padding-top: 70px;
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+}
+
+.shedule {
+  max-width: 900px;
+  margin: 50px auto;
+  h3 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &__row {
+    padding: 0 0 0 20px;
+  }
+  &__item {
+    display: flex;
+  }
+  &__index {
+    flex: 0 0 200px;
+    padding-right: 30px;
+    display: none;
+    text-align: right;
+    @media (min-width: 768px) {
+      display: block;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+  &__index.mobile {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  &__content {
+    border-left: 1px solid #667f81;
+    padding: 0 30px 30px 30px;
+    position: relative;
+  }
+  &__content::after {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $secondary;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+    @media (min-width: 768px) {
+      font-size: 24px;
+      margin-top: -7px;
+    }
+  }
+  &__description {
+    p {
+      margin-bottom: 0;
+    }
+  }
+  &__item:last-child &__content {
+    border-left: none;
+  }
+}
+
+.editorContent {
+  max-width: 800px;
+  margin: 0 auto;
+}

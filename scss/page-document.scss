@@ -1,0 +1,19 @@
+@import "mixin";
+@import "colors";
+
+.documentPage {
+  padding-top: 60px;
+  @include adaptive-value("padding-top", 60, 30, 1);
+  h1, h3 {
+    text-align: center!important;
+  }
+  h1 {
+    margin-bottom: 40px;
+  }
+  h3 {
+    margin: 45px 0;
+  }
+  h4 {
+    margin-bottom: 20px;
+  }
+}
