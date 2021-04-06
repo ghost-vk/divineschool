@@ -339,6 +339,10 @@ ul.item-description {
   display: none!important;
 }
 
+.form-check label {
+  text-transform: none!important;
+}
+
 @media (min-width: 576px) {
   .payment-form .title {
     font-size: 1.2em;

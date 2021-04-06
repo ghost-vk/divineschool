@@ -4,7 +4,7 @@ if ( isset($_GET['login']) ) {
 		$login_class = "active"; // Show recovery popup if right pair login key
 	}
 } ?>
-<div class="moroz-popup <?= $login_class; ?>" id="popup-login">
+<div class="moroz-popup <?php echo $login_class; ?>" id="popup-login">
 	<div class="moroz-popup__window" data-action="authentication">
 		<div class="moroz-popup__close-container">
 			<div class="moroz-popup__close-btn"></div>
@@ -74,18 +74,18 @@ if ( isset($_GET['login']) ) {
 
 <?php $popup_class = "";
 if ( isset($_GET['action']) ) {
-	if ($_GET['action'] == "rp") {
+	if ( $_GET['action'] == "rp" ) {
 		$key = $_GET['key'];
 		$login = $_GET['login'];
 		
-		$is_ok = check_password_reset_key( $key, $login );
+		$is_ok = check_password_reset_key($key, $login);
 		
-		if ( !is_wp_error($is_ok) ) {
+		if ( ! is_wp_error($is_ok) ) {
 			$popup_class = "active"; // Show recovery popup if right pair login key
 		}
 	}
 } ?>
-<div class="moroz-popup <?= $popup_class; ?>" id="popup-new-password">
+<div class="moroz-popup <?php echo $popup_class; ?>" id="popup-new-password">
 	<div class="moroz-popup__window" data-action="reset_password">
 		<div class="moroz-popup__close-container">
 			<div class="moroz-popup__close-btn"></div>
@@ -135,8 +135,8 @@ if ( isset($_GET['action']) ) {
 		</div>
 		<div class="moroz-popup__response-wrapper">
 			<picture>
-				<source type="image/svg+xml" srcset="<?= get_template_directory_uri(); ?>/img/icons/letter_response.svg" />
-				<img src="<?= get_template_directory_uri(); ?>/img/icons/letter_response.png" />
+				<source type="image/svg+xml" srcset="<?php echo get_template_directory_uri(); ?>/img/icons/letter_response.svg" />
+				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/letter_response.png" />
 			</picture>
 			<p class="response-main mb-0 fs-5"></p>
 		</div>

@@ -2,15 +2,18 @@
 // Styles
 add_action('wp_enqueue_scripts', 'add_styles');
 function add_styles() {
+	// General styles, loads for each page
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/scss/main.css' );
 	wp_enqueue_style( 'popup', get_template_directory_uri() . '/scss/popup.css' );
 	
+	// Homepage
 	if ( is_front_page() ) {
 		wp_enqueue_style( 'home', get_template_directory_uri() . '/scss/home.css' );
 		wp_enqueue_style( 'time-to', get_template_directory_uri() . '/node_modules/time-to/timeTo.css' );
 		wp_enqueue_style( 'animate-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' );
 	}
 	
+	// Document page
 	if ( is_page(
 		[
 			'privacy',
@@ -20,6 +23,7 @@ function add_styles() {
 		wp_enqueue_style( 'document-page', get_template_directory_uri() . '/scss/page-document.css' );
 	}
 	
+	// Cart, Checkout, Thank you
 	if ( is_page(
 		array(
 			'cart',
@@ -29,10 +33,12 @@ function add_styles() {
 		wp_enqueue_style( 'cart', get_template_directory_uri() . '/scss/cart.css' );
 	}
 	
+	// User account
 	if ( is_page('user') ) {
 		wp_enqueue_style( 'user-account', get_template_directory_uri() . '/scss/user-account.css' );
 	}
 	
+	// Course page template
 	if ( is_product() ) {
 		wp_enqueue_style( 'user-account', get_template_directory_uri() . '/scss/product.css' );
 	}
@@ -41,6 +47,7 @@ function add_styles() {
 // Scripts
 add_action ('wp_enqueue_scripts', 'add_scripts');
 function add_scripts () {
+	// General scripts, loads for each page
 	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
 	wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/519fd0f28a.js', array(), null, true);
 	wp_enqueue_script('user-popup-form', get_template_directory_uri() . '/js/popup-form.js', array('jquery'), null, true);
@@ -50,6 +57,7 @@ function add_scripts () {
 		'url' => admin_url('admin-ajax.php'),
 	));
 	
+	// Homepage
 	if ( is_front_page() ) {
 		wp_enqueue_script('time-to', get_template_directory_uri() . '/node_modules/time-to/jquery.time-to.min.js', array('jquery'), null, true);
 		wp_enqueue_script('homepage', get_template_directory_uri() . '/js/homepage.js', array('jquery', 'time-to'), null, true);
@@ -66,6 +74,7 @@ function add_scripts () {
 		));
 	}
 	
+	// Checkout
 	if ( is_page('checkout') ) {
 		wp_dequeue_script('wc-checkout');
 		wp_enqueue_script('checkout', get_template_directory_uri() . '/js/checkout.js', array('jquery'), null, true);

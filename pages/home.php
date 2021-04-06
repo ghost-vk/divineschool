@@ -8,21 +8,6 @@ if ( isset($_POST['product_id']) ) {
 ?>
 <?php get_header(); ?>
 
-<?php // TEST
-$email_content  = "Кто-то запросил сброс пароля на сайте " . home_url() . "\r\n\r\n";
-$email_content .= "Если это были не вы, проигнорируйте это сообщение, как будто ничего не было :)\r\n\r\n";
-$email_content .= "Для восстановления пароля перейдите по следующей ссылке: ";
-
-$headers = [
-	'From: Дарья Мороз <support@dariamoroz.ru>',
-	'content-type: text/plain',
-];
-
-// Send email
-$email = 'wkuz99@yandex.ru';
-//$is_send = wp_mail( $email, 'Восстановление пароля', $email_content, $headers );
-?>
-
 <div class="homeBody">
     <!--    HELLO SECTION    -->
     <div class="px-4 py-5 text-center helloSection">
@@ -35,7 +20,7 @@ $email = 'wkuz99@yandex.ru';
 		} ?>
         <style>
             .helloSection {
-                background-image: url("<?= $background_image_src; ?>");
+                background-image: url("<?php echo $background_image_src; ?>");
             }
         </style>
         <h1 class="display-5 fw-bold text-primary"><?php the_field('hello_title'); ?></h1>
@@ -44,7 +29,7 @@ $email = 'wkuz99@yandex.ru';
 				<?php the_field('hello_text'); ?>
             </div>
             
-            <div class="homeTimer mb-md-5 mb-3" <?= $counter_id; ?>>
+            <div class="homeTimer mb-md-5 mb-3" <?php echo $counter_id; // Displays with attr name ?>>
                 <div id="countdown"></div>
             </div>
             

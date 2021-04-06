@@ -11,7 +11,7 @@ function need_processing_false_filter() {
 /**
  * Set booking status completed after successful payment
  */
-add_action( 'woocommerce_order_status_completed', 'register_user_after_payment' ); // TODO Протестировать на предмет создания пароля
+add_action( 'woocommerce_order_status_completed', 'register_user_after_payment' );
 function register_user_after_payment( $order_id ) { // TODO Протестировать функцию с боевой платежной системой
 	$WC_Order = new WC_Order($order_id);
 	if ( ! $WC_Order ) {

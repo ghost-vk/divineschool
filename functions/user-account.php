@@ -57,10 +57,10 @@ function authenticate_user() {
 
 
 /**
- * Send link to reset password // TODO Нонс + тест
+ * Send link to reset password
  */
 function send_reset_link() {
-	check_ajax_referer( 'moroz-nonce', 'nonce' ); // Check nonce code
+	check_ajax_referer( 'user_nonce', 'nonce' ); // Check nonce code
 	$response = array();
 	
 	$email = $_POST['email'];
@@ -71,22 +71,40 @@ function send_reset_link() {
 	} elseif ( is_user_logged_in() ) {
 		$response["message"] = "Вы уже авторизованы, перезагрузите страницу";
 	} else {
-		$key = get_password_reset_key($user);
+		$name = $user->get('first_name');
+		if ( ! $name ) {
+			$name = 'Пользователь';
+		}
 		
+		$key = get_password_reset_key($user);
 		$rp_link = home_url() . "/?action=rp&key=$key&login=" . rawurlencode($email);
 		
-		$email_content  = "Кто-то запросил сброс пароля на сайте " . home_url() . "\r\n\r\n";
-		$email_content .= "Если это были не вы, проигнорируйте это сообщение, как будто ничего не было :)\r\n\r\n";
-		$email_content .= "Для восстановления пароля перейдите по следующей ссылке: " . $rp_link;
+		$headers = array(
+			'From: Divine University <support@divineschool.site>',
+			'content-type: text/html',
+			'reply-to: <support@divineschool.site>'
+		);
 		
-		$headers = [
-			'From: Дарья Мороз <support@dariamoroz.ru>',
-			'content-type: text/plain',
-		];
+		$mail_args = array(
+			'name' => $name,
+			'reset_link' => $rp_link,
+			'site_name' => get_bloginfo('name'),
+		);
+		
+		ob_start();
+		include __DIR__ . "/../templates/emails/reset-password.php";
+		$content = ob_get_clean();
+		foreach ( $mail_args as $key => $value ) {
+			if ( ! is_array( $value ) && ! is_object( $value ) ) {
+				$search  = '{$' . $key . '}';
+				$content = str_replace( $search, $value, $content );
+			}
+		}
+		$message = $content;
 		
 		// Send email
-		$is_send = wp_mail( $email, 'Восстановление пароля', $email_content, $headers );
-		if ( $is_send == true ) {
+		$is_send = wp_mail( $email, 'Восстановление пароля', $message, $headers );
+		if ( $is_send === true ) {
 			$response["message"] = "Ссылка для сброса пароля была выслана на email: " . $email;
 		} else {
 			$response["message"] = "Произошла ошибка, попробуйте ещё раз";
@@ -102,7 +120,7 @@ function send_reset_link() {
  * Reset password // TODO Нонс + тест
  */
 function reset_user_password() {
-	check_ajax_referer( 'moroz-nonce', 'nonce' ); // Check nonce code
+	check_ajax_referer( 'user_nonce', 'nonce' ); // Check nonce code
 	$response = array(
 		"action" => "reload",
 	);
@@ -116,16 +134,18 @@ function reset_user_password() {
 	
 	$user = check_password_reset_key( $key, $login );
 	
-	if (! is_wp_error($user) && isset($new_password) ) {
+	if ( ! is_wp_error($user) && isset($new_password) ) {
 		$response["message"] = "Ваш пароль изменён!";
 		$response["success"] = "yes";
 		reset_password($user, $new_password);
 		
-		$signon = wp_signon(array(
-			'user_login' => $login,
-			'user_password' => $new_password,
-			'remember' => true,
-		));
+		$signon = wp_signon(
+			array(
+				'user_login' => $login,
+				'user_password' => $new_password,
+				'remember' => true,
+			)
+		);
 		
 		if ( ! is_wp_error( $signon ) ) { // If not error
 			// Set cookies

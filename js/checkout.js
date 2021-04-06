@@ -10,7 +10,8 @@
             secondName: $("#billing_last_name"),
             city: $("#billing_city"),
             phone: $("#billing_phone"),
-            email: $("#billing_email")
+            email: $("#billing_email"),
+            policy: $("#checkPolicy")
         }
 
         errorBlock = $(`
@@ -56,6 +57,18 @@
         }
 
         /**
+         * Validates checkbox
+         * @param check {jQuery element}
+         * @return {boolean}
+         */
+        function validateCheck(check) {
+            if (check.prop("checked") !== true) {
+                return false;
+            }
+            return true;
+        }
+
+        /**
          * Validates all fields in field Object
          * @return {boolean}
          */
@@ -69,6 +82,9 @@
                         break;
                     case 'email' :
                         validation = validateEmail(fields[prop].val());
+                        break;
+                    case 'policy' :
+                        validation = validateCheck(fields[prop]);
                         break;
                     default :
                         validation = validateSimpleString(fields[prop].val());
