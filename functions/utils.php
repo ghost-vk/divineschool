@@ -1,5 +1,17 @@
 <?php
 /**
+ * Display site title
+ */
+function _wp_render_title_tag() {
+	if ( ! current_theme_supports( 'title-tag' ) ) {
+		return;
+	}
+	
+	echo '<title>' . wp_get_document_title() . '</title>' . "\n";
+}
+
+
+/**
 * Detect mobile users
 * @return false|int
 */
@@ -29,3 +41,4 @@ function send_smtp_email( PHPMailer $phpmailer ) {
 		$phpmailer->FromName   = SMTP_NAME;
 	}
 }
+
