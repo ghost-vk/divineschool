@@ -2,13 +2,7 @@
 /**
  * Display site title
  */
-function _wp_render_title_tag() {
-	if ( ! current_theme_supports( 'title-tag' ) ) {
-		return;
-	}
-	
-	echo '<title>' . wp_get_document_title() . '</title>' . "\n";
-}
+add_theme_support( 'title-tag' );
 
 
 /**
