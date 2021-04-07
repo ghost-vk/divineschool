@@ -74,8 +74,15 @@ global $woocommerce;
                     
                     <div class="row">
                         <div class="form-group w-100 mt-3">
-							<?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
+<!--							--><?php //wp_nonce_field( 'woocommerce-process_checkout' ); ?>
+       
+							<?php do_action( 'woocommerce_pay_order_before_submit' ); ?>
+                            
                             <button type="submit" id="checkoutSubmit" name="woocommerce_checkout_place_order" class="btn btn-success btn-block w-100 mb-2">Оплатить</button>
+                            
+							<?php do_action( 'woocommerce_pay_order_after_submit' ); ?>
+	
+							<?php wp_nonce_field( 'woocommerce-pay', 'woocommerce-pay-nonce' ); ?>
                         </div>
                     </div>
                 </div>
