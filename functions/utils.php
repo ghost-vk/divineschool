@@ -36,3 +36,13 @@ function send_smtp_email( PHPMailer $phpmailer ) {
 	}
 }
 
+/**
+ * Allow additional redirect hosts
+ */
+add_filter( 'allowed_redirect_hosts', 'allow_redirect_hosts' );
+function allow_redirect_hosts( $hosts ) {
+	$my_hosts = array(
+		'www.paypal.com',
+	);
+	return array_merge( $hosts, $my_hosts );
+}
