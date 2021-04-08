@@ -43,6 +43,7 @@ add_filter( 'allowed_redirect_hosts', 'allow_redirect_hosts' );
 function allow_redirect_hosts( $hosts ) {
 	$my_hosts = array(
 		'www.paypal.com',
+		'www.sandbox.paypal.com',
 	);
 	return array_merge( $hosts, $my_hosts );
 }
