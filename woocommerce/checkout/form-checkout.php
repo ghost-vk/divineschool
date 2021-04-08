@@ -74,6 +74,7 @@ global $woocommerce;
                     
                     <div class="row">
                         <div class="form-group w-100 mt-3">
+				<input type="hidden" name="woocommerce_pay" value="1" />
 							<?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
        
 							<?php do_action( 'woocommerce_pay_order_before_submit' ); ?>
