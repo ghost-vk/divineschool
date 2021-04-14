@@ -56,14 +56,21 @@ global $woocommerce;
 						<?php
 						$WC_Payment_Gateways = new WC_Payment_Gateways();
 						$available_gateways = $WC_Payment_Gateways->get_available_payment_gateways();
-						$gateway_test = $available_gateways["cheque"]; // TODO Сменить тип платежной системы на боевой (Касса)
-//						$gateway_kassa = $available_gateways["cheque"];
+//						$gateway_test = $available_gateways["cheque"]; // TODO Сменить тип платежной системы на боевой (Касса)
 						$gateway_paypal = $available_gateways["paypal"];
+						$gateway_yookassa = $available_gateways["yookassa_epl"];
 						?>
                         <div class="d-block my-1">
+<!--                            <div class="custom-control custom-radio payment-method">-->
+<!--                                <input id="credit" name="payment_method" type="radio" class="custom-control-input" value="--><?php //echo esc_attr( $gateway_test->id ); ?><!--" checked="checked">-->
+<!--                                <label class="custom-control-label mb-0 payment-label" for="credit">Оплата картой&nbsp;&nbsp;<i class="far fa-credit-card"></i></label>-->
+<!--                            </div>-->
                             <div class="custom-control custom-radio payment-method">
-                                <input id="credit" name="payment_method" type="radio" class="custom-control-input" value="<?php echo esc_attr( $gateway_test->id ); ?>" checked="checked">
-                                <label class="custom-control-label mb-0 payment-label" for="credit">Оплата картой&nbsp;&nbsp;<i class="far fa-credit-card"></i></label>
+                                <input id="yookassa_payment_method" name="payment_method" type="radio" class="custom-control-input " value="<?php echo esc_attr( $gateway_yookassa->id ); ?>">
+                                <label class="custom-control-label mb-0 payment-label" for="yookassa_payment_method">ЮКасса&nbsp;&nbsp;<i class="far fa-credit-card"></i></label>
+                            </div>
+                            <div class="method-description">
+                                <p class="text">Больше подходит, если вы находитесь в России. Можно оплатить с помощью банковских карт и электронных кошельков</p>
                             </div>
                             <div class="custom-control custom-radio payment-method">
                                 <input id="paypal" name="payment_method" type="radio" class="custom-control-input " value="<?php echo esc_attr( $gateway_paypal->id ); ?>">
@@ -74,7 +81,7 @@ global $woocommerce;
                     
                     <div class="row">
                         <div class="form-group w-100 mt-3">
-				<input type="hidden" name="woocommerce_pay" value="1" />
+				            <input type="hidden" name="woocommerce_pay" value="1" />
 							<?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
        
 							<?php do_action( 'woocommerce_pay_order_before_submit' ); ?>

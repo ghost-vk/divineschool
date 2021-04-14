@@ -297,6 +297,17 @@ ul.item-description {
 .checkoutForm .payment-method input {
   width: 20px;
 }
+.checkoutForm .method-description p {
+  padding-left: 25px;
+  font-size: 12px;
+  color: #737171;
+  margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+  .checkoutForm .method-description p {
+    font-size: 9px;
+  }
+}
 
 .thankYou {
   min-height: calc(100vh - 400px);

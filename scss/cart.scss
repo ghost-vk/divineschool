@@ -321,10 +321,23 @@ ul.item-description {
   }
 }
 
-.checkoutForm .payment-method {
-  min-height: 20px;
-  input {
-    width: 20px;
+.checkoutForm  {
+  .payment-method {
+    min-height: 20px;
+    input {
+      width: 20px;
+    }
+  }
+  .method-description {
+    p {
+      padding-left: 25px;
+      font-size: 12px;
+      @media (max-width: 768px) {
+        font-size: 9px;
+      }
+      color: #737171;
+      margin-bottom: 5px;
+    }
   }
 }
 
