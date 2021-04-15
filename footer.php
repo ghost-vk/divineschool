@@ -43,9 +43,21 @@
                     <div class="col-12 col-md">
                         <h5 class="text-center text-md-start text-primary">О нас</h5>
                         <ul class="list-unstyled text-small text-center text-md-start">
-                            <li class="mb-1"><p class="link-secondary text-decoration-none mb-0">ИП "Давудова Анна Николаевна"</p></li>
-                            <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?= home_url('/privacy'); ?>">Политика конфиденциальности</a></li>
-                            <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?= home_url('/user-agreement'); ?>">Пользовательское соглашение</a></li>
+                            <li class="mb-1">
+                                <a class="link-secondary text-decoration-none" href="<?= home_url('/privacy'); ?>">Политика конфиденциальности</a>
+                            </li>
+                            <li class="mb-1">
+                                <a class="link-secondary text-decoration-none" href="<?= home_url('/user-agreement'); ?>">Пользовательское соглашение</a>
+                            </li>
+                            <li class="mb-1">
+                                <p class="link-secondary text-decoration-none mb-0">ИП "Давудова Анна Николаевна"</p>
+                            </li>
+                            <li class="mb-1">
+                                <p class="link-secondary text-decoration-none mb-0">ИНН: 233613336553</p>
+                            </li>
+                            <li class="mb-1">
+                                <p class="link-secondary text-decoration-none mb-0">ОГРН: 317237500305432</p>
+                            </li>
                         </ul>
                     </div>
                 </div>
