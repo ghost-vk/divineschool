@@ -212,6 +212,8 @@ if ( current_user_can('edit_posts') && get_current_user_id() !== 1 ) {
 	add_action('admin_init', 'remove_menus');
 }
 function remove_menus(){
+	global $menu;
+	error_log(print_r($menu, true), 0);
 	// Sidebar menus
 	remove_menu_page( 'index.php' );
 	remove_menu_page( 'plugins.php' );
@@ -221,6 +223,8 @@ function remove_menus(){
 	remove_menu_page( 'tools.php' );
 	remove_menu_page( 'options-general.php' );
 //	remove_menu_page( 'cptui_main_menu' );
+	remove_menu_page( 'EWD-UWPM-Options' );
+	remove_menu_page( 'wp-mail-smtp' );
 	remove_menu_page( 'edit.php?post_type=acf-field-group' );
 //	remove_menu_page( 'wc-admin&path=/analytics/overview' );
 	remove_submenu_page( 'edit.php?post_type=page', 'post-new.php?post_type=page' );
