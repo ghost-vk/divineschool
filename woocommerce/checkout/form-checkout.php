@@ -16,7 +16,7 @@ global $woocommerce;
             
             <form name="checkout" method="post" class="checkoutForm rounded" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
                 <div class="products">
-                    <h3 class="title">Курсы</h3>
+                    <h3 class="title text-bigger-2">Курсы</h3>
                     <?php
 					foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 						$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );

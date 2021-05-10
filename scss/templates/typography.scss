@@ -6,7 +6,7 @@ p, a, span, h1, h2, h3, h4, h5, h6, li, pre, label, div, button, input, input::p
   letter-spacing: 0.05em;
   line-height: 1.667;
   color: #2e2e2e;
-  @include adaptive-value("font-size", 15, 11, 1);
+  @include adaptive-value("font-size", 16, 12, 1);
 }
 
 h1 {
@@ -38,3 +38,16 @@ h3 {
   }
 }
 
+.text-bigger-1 {
+  @include adaptive-value("font-size", 17, 13, 1);
+  bdi, i {
+    @include adaptive-value("font-size", 17, 13, 1);
+  }
+}
+
+.text-bigger-2 {
+  @include adaptive-value("font-size", 19, 15, 1);
+  bdi, i {
+    @include adaptive-value("font-size", 17, 13, 1);
+  }
+}

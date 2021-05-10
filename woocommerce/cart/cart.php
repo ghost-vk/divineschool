@@ -12,7 +12,7 @@
 				<div class="title">
 					<div class="row">
 						<div class="col">
-							<h4><strong>Корзина</strong></h4>
+							<h4 class="text-bigger-2"><strong>Корзина</strong></h4>
 						</div>
 					</div>
 				</div>
@@ -46,12 +46,12 @@
 						<div class="row main align-items-center">
 							<div class="col-3 col-md-2 px-0"><img class="img-fluid" src="<?= the_field('cart_image', $parent_id); ?>"></div>
 							<div class="col-9 col-md-6">
-								<div class="row mb-2 mb-md-0"><?= $product_name; ?></div>
+								<div class="row mb-2 mb-md-0 text-bigger-1"><?= $product_name; ?></div>
 								<div class="row small text-muted">Пакет "<?= $package_name; ?>"</div>
 							</div>
-							<div class="col-8 col-md-3 mt-3 mt-md-0"><?= $price;?></div>
+							<div class="col-8 col-md-3 mt-3 mt-md-0 text-bigger-1"><?= $price;?></div>
 							<div class="col-4 col-md-1 text-end text-md-start mt-3 mt-md-0">
-								<a href="<?= $remove_url; ?>" class="text-muted"><i class="far fa-trash-alt"></i></a>
+								<a href="<?= $remove_url; ?>" class="text-muted text-bigger-1"><i class="far fa-trash-alt"></i></a>
 							</div>
 						</div>
 					</div>
@@ -62,15 +62,15 @@
 			</div>
 			<div class="col-md-4 summary">
 				<div>
-					<h5><b>Итого</b></h5>
+					<h5 class="text-bigger-1"><b>Итого</b></h5>
 				</div>
 				<hr>
 				<div>
 					<p class="small text-muted">Курс будет доступен вам в личном кабинете после оплаты</p>
 				</div>
 				<div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-					<div class="col px-0">Сумма</div>
-					<div class="col text-right"><?= $total; ?></div>
+					<div class="col px-0 text-bigger-2">Сумма</div>
+					<div class="col text-right text-bigger-2"><?= $total; ?></div>
 				</div>
 				<a href="<?php echo wc_get_checkout_url(); ?>" class="btn">Оформить заказ</a>
 			</div>

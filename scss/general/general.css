@@ -90,11 +90,11 @@ p, a, span, h1, h2, h3, h4, h5, h6, li, pre, label, div, button, input, input::p
   letter-spacing: 0.05em;
   line-height: 1.667;
   color: #2e2e2e;
-  font-size: 15px;
+  font-size: 16px;
 }
 @media (max-width: 1200px) {
   p, a, span, h1, h2, h3, h4, h5, h6, li, pre, label, div, button, input, input::placeholder {
-    font-size: calc(11px + 4 * ((100vw - 320px) / 880));
+    font-size: calc(12px + 4 * ((100vw - 320px) / 880));
   }
 }
 
@@ -139,6 +139,40 @@ h3 {
 @media (min-width: 1024px) {
   .text-white-desktop {
     color: #ffffff;
+  }
+}
+
+.text-bigger-1 {
+  font-size: 17px;
+}
+@media (max-width: 1200px) {
+  .text-bigger-1 {
+    font-size: calc(13px + 4 * ((100vw - 320px) / 880));
+  }
+}
+.text-bigger-1 bdi, .text-bigger-1 i {
+  font-size: 17px;
+}
+@media (max-width: 1200px) {
+  .text-bigger-1 bdi, .text-bigger-1 i {
+    font-size: calc(13px + 4 * ((100vw - 320px) / 880));
+  }
+}
+
+.text-bigger-2 {
+  font-size: 19px;
+}
+@media (max-width: 1200px) {
+  .text-bigger-2 {
+    font-size: calc(15px + 4 * ((100vw - 320px) / 880));
+  }
+}
+.text-bigger-2 bdi, .text-bigger-2 i {
+  font-size: 17px;
+}
+@media (max-width: 1200px) {
+  .text-bigger-2 bdi, .text-bigger-2 i {
+    font-size: calc(13px + 4 * ((100vw - 320px) / 880));
   }
 }
 
