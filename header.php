@@ -12,6 +12,8 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/img/pictures/anna-author.jpg">
     <meta property="og:locale" content="ru_RU">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
 </head>
 <body>
 <div id="main" class="divine-school-bg">
@@ -62,7 +64,7 @@
                     </a>
                     <?php if ( current_user_can('administrator') ) : ?>
                         <a href="<?php echo home_url('/wp-admin'); ?>" class="header__link header__link-login">
-                            <i class="fas fa-users-cog"></i> Админ
+                            <i class="fas fa-users-cog"></i>
                         </a>
                     <?php endif; ?>
                     <?php if ( is_user_logged_in() ) : ?>
