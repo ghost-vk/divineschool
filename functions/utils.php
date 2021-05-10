@@ -13,29 +13,6 @@ function is_mobile() {
 	return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
 }
 
-
-use PHPMailer\PHPMailer\PHPMailer;
-
-/**
- * Set SMTP
- *
- * @param PHPMailer $phpmailer
- */
-add_action( 'phpmailer_init', 'send_smtp_email' );
-function send_smtp_email( PHPMailer $phpmailer ) {
-	if ( defined('SMTP_USER') && defined('SMTP_PASS') ) {
-		$phpmailer->isSMTP();
-		$phpmailer->Host       = SMTP_HOST;
-		$phpmailer->SMTPAuth   = SMTP_AUTH;
-		$phpmailer->Port       = SMTP_PORT;
-		$phpmailer->Username   = SMTP_USER;
-		$phpmailer->Password   = SMTP_PASS;
-		$phpmailer->SMTPSecure = SMTP_SECURE;
-		$phpmailer->From       = SMTP_FROM;
-		$phpmailer->FromName   = SMTP_NAME;
-	}
-}
-
 /**
  * Allow additional redirect hosts
  */
@@ -47,3 +24,39 @@ function allow_redirect_hosts( $hosts ) {
 	);
 	return array_merge( $hosts, $my_hosts );
 }
+
+
+/**
+ * Displays package description from product page (course)
+ * @param $package_index {Integer}
+ * @param $course_product_id {Integer}
+ */
+function display_package_description( $package_index, $course_product_id ) {
+	if ( have_rows( 'package_' . $package_index . '_description', $course_product_id ) ) {
+		while ( have_rows( 'package_' . $package_index . '_description', $course_product_id ) ) {
+			the_row();
+			echo '<li>' . get_sub_field('text') . '</li>';
+		}
+	}
+}
+
+/**
+ * Function redirects logged user to user cabinet
+ */
+add_action('redirect_to_user_account', 'redirect_to_user_account', 10, 0);
+function redirect_to_user_account() {
+	if ( current_user_can('administrator') ) {
+		return;
+	}
+	if ( is_user_logged_in() ) {
+		header("Location: " . home_url('/user'));
+	}
+}
+
+add_action('redirect_non_admin', 'redirect_non_admin', 10, 0);
+function redirect_non_admin () {
+	if ( ! is_user_logged_in() || ! current_user_can('administrator') ) {
+		header("Location: " . home_url('/?login=true'));
+	}
+}
+

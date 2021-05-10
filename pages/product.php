@@ -17,7 +17,7 @@ if ( ! $access ) { // If user haven't access to this course
 <div class="coursePage">
 	<div class="container">
 		<div class="coursePage__title">
-			<h1><?php the_title(); ?></h1>
+			<h3><?php the_title(); ?></h3>
 		</div>
         <?php
         $subtitle = get_field('product_subtitle');

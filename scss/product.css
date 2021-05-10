@@ -1,5 +1,11 @@
 .coursePage {
   padding-top: 70px;
+  margin-bottom: 80px;
+}
+@media (max-width: 1200px) {
+  .coursePage {
+    margin-bottom: calc(40px + 40 * ((100vw - 320px) / 880));
+  }
 }
 .coursePage__title {
   text-align: center;

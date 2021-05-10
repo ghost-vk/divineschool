@@ -1,15 +1,17 @@
 <?php if ( ! is_user_logged_in() ) {
 	header('Location: ' . home_url() . '?login=true');
 } ?>
-<?php if ( ! isset($_COOKIE['visitor']) ) { // First visit user account
+<?php
+if ( ! isset($_COOKIE['visitor']) ) { // First visit user account
 	setcookie('visitor', '1', time() + 3600 * 24 * 60, '/', '', 0);
-} ?>
+}
+?>
 <?php get_header(); ?>
 
     <div class="container">
         <div class="userAccount py-5">
             <div class="userAccount__title text-center mb-5">
-                <h1 class="text-primary">Кабинет пользователя</h1>
+                <h3 class="text-primary">Кабинет пользователя</h3>
             </div>
             
             <!--      USER NAVIGATION      -->

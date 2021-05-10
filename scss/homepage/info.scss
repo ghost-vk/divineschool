@@ -1,0 +1,39 @@
+@import "./../templates/colors";
+
+.infoDivider {
+  background-color: $secondary;
+  @include adaptive-value("padding-top", 80, 15, 1);
+  @include adaptive-value("padding-bottom", 80, 15, 1);
+  @include adaptive-value("margin-bottom", 120, 60, 1);
+  .infoDivider__row {
+    max-width: 760px;
+    padding-left: 20px;
+    padding-right: 20px;
+    @media (max-width: 760px) {
+
+    }
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+    }
+    img {
+      margin-right: 20px;
+      @include adaptive-value("width", 82, 30, 1);
+      @media (max-width: 768px) {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+      }
+    }
+    p {
+      @include adaptive-value("font-size", 22, 12, 1);
+      font-style: italic;
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+    }
+  }
+}

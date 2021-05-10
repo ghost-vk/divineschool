@@ -1,0 +1,107 @@
+.courseAuthor {
+  @include adaptive-value("margin-bottom", 80, 40, 1);
+  &__wrapper {
+    @include alpha-attribute('background-color', rgba($secondary, 0.4), $secondary);
+    @include adaptive-value("max-width", 1200, 280, 1);
+    @include adaptive-value("padding-top", 80, 30, 1);
+    @include adaptive-value("padding-bottom", 80, 30, 1);
+    @include adaptive-value("padding-left", 60, 15, 1);
+    @include adaptive-value("padding-bottom", 60, 15, 1);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+    @media (max-width: 860px) {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @media (max-width: 480px) {
+      padding-top: 0;
+    }
+  }
+  &__row {
+    display: flex;
+    @media (max-width: 860px) {
+      flex-wrap: wrap;
+    }
+  }
+  &__image {
+    @include adaptive-value("width", 480, 280, 1);
+    @media (max-width: 860px) {
+      flex: 0 0 100%;
+      margin-bottom: 25px;
+    }
+    img {
+      border-radius: 2px;
+      @media (max-width: 860px) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (max-width: 480px) {
+        border-radius: 0;
+      }
+    }
+  }
+  &__info {
+    @include adaptive-value("padding-left", 100, 15, 1);
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__title {
+    @include adaptive-value("font-size", 70, 50, 1);
+    @include adaptive-value("margin-bottom", 25, 10, 1);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+  &__name {
+    p {
+      @include adaptive-value("font-size", 26, 16, 1);
+      color: $secondary;
+    }
+  }
+  &__insta {
+    @include adaptive-value("margin-bottom", 15, 5, 1);
+    p {
+      @include adaptive-value("font-size", 16, 12, 1);
+      color: $secondary;
+    }
+  }
+}
+
+.courseQuote {
+  @include adaptive-value("margin-bottom", 120, 60, 1);
+  &__box {
+    border-left: 2px solid $secondary;
+    position: relative;
+    @include adaptive-value("padding-top", 30, 15, 1);
+    @include adaptive-value("padding-bottom", 30, 15, 1);
+    @include adaptive-value("padding-left", 30, 15, 1);
+    padding-right: 10px;
+  }
+  &__box::before {
+    position: absolute;
+    top: -3px;
+    left: -6px;
+    content: '';
+    border-radius: 50%;
+    background-color: $secondary;
+    width: 10px;
+    height: 10px;
+  }
+  &__box::after {
+    position: absolute;
+    bottom: -3px;
+    left: -6px;
+    content: '';
+    border-radius: 50%;
+    background-color: $secondary;
+    width: 10px;
+    height: 10px;
+  }
+  &__content {
+
+  }
+}

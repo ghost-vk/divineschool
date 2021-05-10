@@ -1,0 +1,7 @@
+@import "adaptive-value";
+
+.container-1 {
+  @include adaptive-value("max-width", 1200, 280, 1);
+  margin-left: auto;
+  margin-right: auto;
+}

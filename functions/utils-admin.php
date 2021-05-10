@@ -81,7 +81,7 @@ function rename_woocoomerce_wpse_100758() {
 		return;
 	}
 	
-	$menu[$woo][0] = 'Настройки магазина';
+	$menu[$woo][0] = 'Заказы';
 	$menu[$products_tab_name][0] = 'Курсы';
 	
 }
@@ -115,3 +115,129 @@ function mytheme_add_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
+
+/**
+ * SVG support for WP
+ */
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+	global $wp_version;
+	$filetype = wp_check_filetype( $filename, $mimes );
+	return array(
+		'ext'             => $filetype['ext'],
+		'type'            => $filetype['type'],
+		'proper_filename' => $data['proper_filename']
+	);
+}, 10, 4 );
+
+add_filter( 'upload_mimes', 'cc_mime_types' );
+function cc_mime_types( $mimes ){
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+
+add_action( 'admin_head', 'fix_svg' );
+function fix_svg() {
+	echo '<style type="text/css">
+        .attachment-266x266, .thumbnail img {
+             width: 100% !important;
+             height: auto !important;
+        }
+        </style>';
+}
+
+/**
+ * Add advanced settings
+ */
+if( function_exists('acf_add_options_page') ) {
+	generate_booking_settings_page();
+}
+function generate_booking_settings_page() {
+	$parent = acf_add_options_page(array(
+		'page_title' 	=> 'Настройки сайта',
+		'menu_title'	=> 'Настройки сайта',
+		'menu_slug' 	=> 'general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> true,
+		'position'	    => 1,
+		'post_id'		=> 'general_settings',
+		'update_button' => 'Обновить настройки',
+		'updated_message' => 'Настройки обновлены',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Основные',
+		'menu_title'	=> 'Основные',
+		'capability'	=> 'edit_posts',
+		'menu_slug' 	=> $parent['menu_slug'] . '-main',
+		'parent_slug'	=> $parent['menu_slug'],
+		'update_button' => $parent['update_button'],
+		'updated_message' => $parent['updated_message'],
+	));
+}
+
+/**
+ * Works with logo
+ */
+add_action( 'login_head', 'my_custom_login_logo' );
+add_action('add_admin_bar_menus', 'reset_admin_wplogo');
+function my_custom_login_logo() {
+	echo '
+	<style type="text/css">
+	h1 a {  background-image:url(' . get_bloginfo('template_directory') . '/images/logo.png) !important;  }
+	</style>
+	';
+}
+function reset_admin_wplogo(  ){
+	remove_action( 'admin_bar_menu', 'wp_admin_bar_wp_menu', 10 ); // удаляем стандартную панель (логотип)
+	
+	add_action( 'admin_bar_menu', 'my_admin_bar_wp_menu', 10 ); // добавляем свою
+}
+function my_admin_bar_wp_menu( $wp_admin_bar ) {
+	$wp_admin_bar->add_menu( array(
+		'id'    => 'wp-logo',
+		'title' => '<img style="max-width:30px;height:auto;" src="'. get_bloginfo('template_directory') .'/images/logo.png" alt="" >',
+		// можно вставить картинку
+		'href'  => home_url(),
+		'meta'  => array(
+			'title' => 'О моем сайте',
+		),
+	) );
+}
+
+/**
+ * Hide menus for site admins
+ */
+if ( current_user_can('edit_posts') && get_current_user_id() !== 1 ) {
+	add_action('admin_init', 'remove_menus');
+}
+function remove_menus(){
+	// Sidebar menus
+	remove_menu_page( 'index.php' );
+	remove_menu_page( 'plugins.php' );
+	remove_menu_page( 'upload.php' );
+	remove_menu_page( 'themes.php' );
+	remove_menu_page( 'users.php' );
+	remove_menu_page( 'tools.php' );
+	remove_menu_page( 'options-general.php' );
+//	remove_menu_page( 'cptui_main_menu' );
+	remove_menu_page( 'edit.php?post_type=acf-field-group' );
+//	remove_menu_page( 'wc-admin&path=/analytics/overview' );
+	remove_submenu_page( 'edit.php?post_type=page', 'post-new.php?post_type=page' );
+	
+	// Submenus WooCommerce
+//	remove_submenu_page( 'woocommerce', 'wc-admin' );
+	remove_submenu_page( 'woocommerce', 'yoomoney_api_menu' );
+	remove_submenu_page( 'woocommerce', 'wc-admin&path=/customers' );
+	remove_submenu_page( 'woocommerce', 'wc-reports' );
+	remove_submenu_page( 'woocommerce', 'wc-settings' );
+	remove_submenu_page( 'woocommerce', 'wc-status' );
+	remove_submenu_page( 'woocommerce', 'wc-addons' );
+	remove_submenu_page( 'woocommerce', 'inspire_checkout_fields_settings' );
+	
+	// Submenus WooCommerce Products
+	remove_submenu_page( 'edit.php?post_type=product', 'post-new.php?post_type=product' );
+	remove_submenu_page( 'edit.php?post_type=product', 'edit-tags.php?taxonomy=product_cat&amp;post_type=product' );
+	remove_submenu_page( 'edit.php?post_type=product', 'edit-tags.php?taxonomy=product_tag&amp;post_type=product' );
+	remove_submenu_page( 'edit.php?post_type=product', 'product_attributes');
+}

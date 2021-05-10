@@ -4,6 +4,7 @@
 .documentPage {
   padding-top: 60px;
   @include adaptive-value("padding-top", 60, 30, 1);
+  @include adaptive-value("margin-bottom", 80, 40, 1);
   h1, h3 {
     text-align: center!important;
   }

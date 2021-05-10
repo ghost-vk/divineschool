@@ -1,0 +1,33 @@
+@import "./../templates/colors";
+.adminNav {
+  background-color: $secondary;
+  padding-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  border-radius: 2px;
+  padding: 5px;
+  &__item {
+    margin-right: 15px;
+    background-color: #c4c4c4;
+    padding: 5px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    div {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: #ffffff;
+    }
+    i {
+      font-size: 30px!important;
+      color: #ffffff;
+      margin-right: 10px;
+    }
+  }
+  &__item-emails {
+    background-color: #3e5b8a;
+  }
+  &__item:last-child {
+    margin-right: 0;
+  }
+}

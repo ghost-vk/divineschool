@@ -1,0 +1,14 @@
+@import "nav";
+@import "form";
+
+#main {
+  min-height: 100vh;
+}
+
+.adminPage {
+  &__wrapper {
+    border: 1px solid $secondary;
+    border-radius: 2px;
+    margin: 50px 0;
+  }
+}

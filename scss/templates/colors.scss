@@ -1,0 +1,11 @@
+$secondary: #0d5257;
+$black: #2e2e2e;
+$gray: #706d6d;
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}

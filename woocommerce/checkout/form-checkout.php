@@ -10,7 +10,7 @@ global $woocommerce;
     <section class="payment-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-primary">Оформление заказа</h2>
+                <h3 class="text-primary">Оформление заказа</h3>
                 <p>После оплаты вам придет письмо на указанный email с данными для входа в личный кабинет</p>
             </div>
             
@@ -66,7 +66,9 @@ global $woocommerce;
 <!--                                <label class="custom-control-label mb-0 payment-label" for="credit">Оплата картой&nbsp;&nbsp;<i class="far fa-credit-card"></i></label>-->
 <!--                            </div>-->
                             <div class="custom-control custom-radio payment-method">
-                                <input id="yookassa_payment_method" name="payment_method" type="radio" class="custom-control-input " value="<?php echo esc_attr( $gateway_yookassa->id ); ?>">
+                                <input id="yookassa_payment_method" name="payment_method" type="radio"
+                                       class="custom-control-input" checked="checked"
+                                       value="<?php echo esc_attr( $gateway_yookassa->id ); ?>">
                                 <label class="custom-control-label mb-0 payment-label" for="yookassa_payment_method">ЮКасса&nbsp;&nbsp;<i class="far fa-credit-card"></i></label>
                             </div>
                             <div class="method-description">
@@ -98,40 +100,39 @@ global $woocommerce;
             
 			<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
             
-            <?php $page_id = 42; // Checkout page ID?>
             <div class="payment-form__question rounded">
                 <div class="products rounded">
-                    <h3 class="title"><?php the_field('contacts_title', $page_id); ?></h3>
-                    <p><?php the_field('contacts_subtitle', $page_id); ?></p>
-                    <?php $contacts = get_field('contacts_group', $page_id); ?>
-                    <?php if ( ! empty($contacts) ) : ?>
-                        <?php
-                        $wa = $contacts['wa'];
-                        $tg = $contacts['tg'];
-                        $insta = $contacts['insta'];
-                        $email = $contacts['email'];
-                        ?>
-                        <?php if ( isset($wa) ) : $target = ( $wa['target'] ) ? $wa['target'] : '_self'; ?>
-                            <a class="d-block" href="<?php echo $wa['url']; ?>" target="<?php echo $wa['target']; ?>">
-                                <i class="fab fa-whatsapp"></i>&nbsp;&nbsp;<?php echo $wa['title']; ?>
-                            </a>
-                        <?php endif; ?>
-						<?php if ( isset($tg) ) : $target = ( $tg['target'] ) ? $tg['target'] : '_self'; ?>
-                            <a class="d-block" href="<?php echo $tg['url']; ?>" target="<?php echo $tg['target']; ?>">
-                                <i class="fab fa-telegram-plane"></i>&nbsp;&nbsp;<?php echo $tg['title']; ?>
-                            </a>
-						<?php endif; ?>
-						<?php if ( isset($insta) ) : $target = ( $insta['target'] ) ? $insta['target'] : '_self'; ?>
-                            <a class="d-block" href="<?php echo $insta['url']; ?>" target="<?php echo $insta['target']; ?>">
-                                <i class="fab fa-instagram"></i>&nbsp;&nbsp;<?php echo $insta['title']; ?>
-                            </a>
-						<?php endif; ?>
-						<?php if ( isset($email) ) : ?>
-                            <a class="d-block" href="mailto:<?php echo $email; ?>">
-                                <i class="far fa-envelope"></i>&nbsp;&nbsp;<?php echo $email; ?>
-                            </a>
-						<?php endif; ?>
-                    <?php endif; ?>
+                    <h3 class="title">Есть вопросы?</h3>
+                    <p>Напишите нам:</p>
+                    
+                    <?php $whats_app = get_field('contacts_wa', 'option'); ?>
+					<?php if ( $whats_app ) : ?>
+                        <a href="https://api.whatsapp.com/send?phone=<?php echo $whats_app; ?>"
+                           class="d-block" target="_blank">
+                            <i class="fab fa-whatsapp"></i>&nbsp;&nbsp;What's App
+                        </a>
+					<?php endif; ?>
+	
+					<?php $email = get_field('contacts_email', 'option'); ?>
+					<?php if ( $email ) : ?>
+                        <a class="d-block" href="mailto:<?php echo $email; ?>" target="_blank">
+                            <i class="far fa-envelope"></i>&nbsp;&nbsp;<?php echo $email; ?>
+                        </a>
+					<?php endif; ?>
+	
+					<?php $phone = get_field('contacts_phone', 'option'); ?>
+					<?php if ( $phone ) : ?>
+                        <a class="d-block" href="<?php echo $phone['url']; ?>" target="_blank">
+                            <i class="fas fa-phone-alt"></i>&nbsp;&nbsp;<?php echo $phone['title']; ?>
+                        </a>
+					<?php endif; ?>
+	
+					<?php $instagram_link = get_field('contacts_instagram', 'option'); ?>
+					<?php if ( $instagram_link ) : ?>
+                        <a class="d-block" href="<?php echo $instagram_link; ?>" target="_blank">
+                            <i class="fab fa-instagram"></i>&nbsp;&nbsp;Instagram
+                        </a>
+					<?php endif; ?>
                 </div>
             </div>
         </div>

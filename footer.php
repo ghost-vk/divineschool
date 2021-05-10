@@ -1,69 +1,72 @@
-        <footer class="border-top mt-5 border-secondary">
-            <div class="container-md">
-                <div class="row pt-4 my-md-5 pt-md-5">
-                    <div class="col-12 col-md order-2 order-md-0">
-                        <h4 class="text-muted text-center text-md-start"><?= get_bloginfo( 'name' ); ?></h4>
-                        <small class="d-block mb-3 text-muted text-center text-md-start">© 2021, Все права защищены</small>
+        <!--   NOTIFICATION   -->
+        <div class="notification" id="notification"></div>
+
+        <!--    FOOTER    -->
+        <footer class="footer">
+            <div class="container-1">
+                <div class="footer__row">
+                    <div class="footer__column footer__column-identica">
+                        <p class="footer__sitename">
+                            <?php echo get_bloginfo( 'name' ); ?>
+                        </p>
+                        <p class="footer__copyright">
+                            &copy; 2021, Все права защищены
+                        </p>
                     </div>
-                    <div class="col-12 col-md">
-                        <h5 class="text-center text-md-start text-primary">Карта сайта</h5>
-                        <ul class="list-unstyled text-small text-center text-md-start">
-                            <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?= home_url(); ?>">Главная страница</a></li>
-                            <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?= home_url('/user'); ?>">Личный кабинет</a></li>
-                            <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?= home_url('/cart'); ?>">Корзина</a></li>
-                            <?php if ( is_user_logged_in() ) : ?>
-                                <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?php echo wp_logout_url(home_url()); ?>">Выход</a></li>
-                            <?php endif; ?>
-                        </ul>
+                    <div class="footer__column">
+                        <p class="footer__title">Карта сайта</p>
+                        <a href="<?php echo home_url(); ?>" class="footer__link">Главная страница</a>
+                        <a href="<?php echo home_url('/user'); ?>" class="footer__link">Личный кабинет</a>
+                        <a href="<?php echo home_url('/cart'); ?>" class="footer__link">Корзина</a>
+                        <a href="<?php echo home_url('/privacy'); ?>" class="footer__link">
+                            Политика конфиденциальности
+                        </a>
+                        <a href="<?php echo home_url('/user-agreement'); ?>" class="footer__link">
+                            Пользовательское соглашение
+                        </a>
                     </div>
-                    <div class="col-12 col-md">
-                        <h5 class="text-center text-md-start text-primary">Контакты</h5>
-                        <ul class="list-unstyled text-small text-center text-md-start">
-                            <?php $wa_link = get_field('wa_link', 8); ?>
-                            <?php if ( $wa_link ) : ?>
-                                <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?= $wa_link['url']?>"><i class="fab fa-whatsapp"></i>&nbsp;&nbsp;<?= $wa_link['title']?></a></li>
-                            <?php endif; ?>
-                            
-                            <?php $email_link = get_field('email_link', 8); ?>
-							<?php if ( $email_link ) : ?>
-                                <li class="mb-1"><a class="link-secondary text-decoration-none" href="mailto:<?= $email_link; ?>"><i class="far fa-envelope"></i>&nbsp;&nbsp;<?= $email_link; ?></a></li>
-							<?php endif; ?>
-	
-							<?php $phone_text = get_field('phone_text', 8); ?>
-							<?php if ( $phone_text ) : ?>
-                                <li class="mb-1"><a class="link-secondary text-decoration-none" href="tel:<?= $phone_text; ?>"><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;<?= $phone_text; ?></a></li>
-							<?php endif; ?>
-	
-							<?php $instagram_link = get_field('instagram_link', 8); ?>
-							<?php if ( $instagram_link ) : ?>
-                                <li class="mb-1"><a class="link-secondary text-decoration-none" href="<?= $instagram_link['url']; ?>"><i class="fab fa-instagram"></i>&nbsp;&nbsp;<?= $instagram_link['title']; ?></a></li>
-							<?php endif; ?>
-                        </ul>
+                    <div class="footer__column">
+                        <p class="footer__title">Контакты</p>
+                        <?php $whats_app = get_field('contacts_wa', 'option'); ?>
+                        <?php if ( $whats_app ) : ?>
+                            <a href="https://api.whatsapp.com/send?phone=<?php echo $whats_app; ?>"
+                               class="footer__link" target="_blank">
+                                <i class="fab fa-whatsapp"></i>&nbsp;&nbsp;Написать в What's App
+                            </a>
+                        <?php endif; ?>
+            
+                        <?php $email = get_field('contacts_email', 'option'); ?>
+                        <?php if ( $email ) : ?>
+                            <a class="footer__link" href="mailto:<?php echo $email; ?>" target="_blank">
+                                <i class="far fa-envelope"></i>&nbsp;&nbsp;<?php echo $email; ?>
+                            </a>
+                        <?php endif; ?>
+            
+                        <?php $phone = get_field('contacts_phone', 'option'); ?>
+                        <?php if ( $phone ) : ?>
+                            <a class="footer__link" href="<?php echo $phone['url']; ?>" target="_blank">
+                                <i class="fas fa-phone-alt"></i>&nbsp;&nbsp;<?php echo $phone['title']; ?>
+                            </a>
+                        <?php endif; ?>
+            
+                        <?php $instagram_link = get_field('contacts_instagram', 'option'); ?>
+                        <?php if ( $instagram_link ) : ?>
+                            <a class="footer__link" href="<?php echo $instagram_link; ?>" target="_blank">
+                                <i class="fab fa-instagram"></i>&nbsp;&nbsp;Посмотреть в Instagram
+                            </a>
+                        <?php endif; ?>
                     </div>
-                    <div class="col-12 col-md">
-                        <h5 class="text-center text-md-start text-primary">О нас</h5>
-                        <ul class="list-unstyled text-small text-center text-md-start">
-                            <li class="mb-1">
-                                <a class="link-secondary text-decoration-none" href="<?= home_url('/privacy'); ?>">Политика конфиденциальности</a>
-                            </li>
-                            <li class="mb-1">
-                                <a class="link-secondary text-decoration-none" href="<?= home_url('/user-agreement'); ?>">Пользовательское соглашение</a>
-                            </li>
-                            <li class="mb-1">
-                                <p class="link-secondary text-decoration-none mb-0">ИП "Давудова Анна Николаевна"</p>
-                            </li>
-                            <li class="mb-1">
-                                <p class="link-secondary text-decoration-none mb-0">ИНН: 233613336553</p>
-                            </li>
-                            <li class="mb-1">
-                                <p class="link-secondary text-decoration-none mb-0">ОГРН: 317237500305432</p>
-                            </li>
-                        </ul>
+                    <div class="footer__column">
+                        <p class="footer__title">О нас</p>
+                        <p class="footer__link">ИП "Давудова Анна Николаевна"</p>
+                        <p class="footer__link">ИНН: 233613336553</p>
+                        <p class="footer__link">ОГРН: 317237500305432</p>
                     </div>
                 </div>
             </div>
         </footer>
         
+        <?php require_once __DIR__ . '/blocks/cookie-notification.php'; ?>
         <?php require_once __DIR__ . '/blocks/user-popups.php'; ?>
 
 		<?php wp_footer(); ?>

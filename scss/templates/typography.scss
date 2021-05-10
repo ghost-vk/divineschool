@@ -1,0 +1,40 @@
+@import "adaptive-value";
+
+p, a, span, h1, h2, h3, h4, h5, h6, li, pre, label, div, button, input, input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.667;
+  color: #2e2e2e;
+  @include adaptive-value("font-size", 15, 11, 1);
+}
+
+h1 {
+  @include adaptive-value("font-size", 70, 50, 1);
+  line-height: 1.1628;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h2 {
+  @include adaptive-value("font-size", 50, 36, 1);
+  line-height: 1.1628;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h3 {
+  @include adaptive-value("font-size", 30, 22, 1);
+  line-height: 0.8333;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.text-white-desktop {
+  @media (min-width: 1024px) {
+    color: #ffffff;
+  }
+}
+

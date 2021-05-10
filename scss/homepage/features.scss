@@ -1,0 +1,66 @@
+@import "./../templates/adaptive-value";
+
+.homeFeatures {
+  h2 {
+    @include adaptive-value("margin-bottom", 100, 80, 1);
+  }
+  @media (max-width: 1200px) {
+    @include adaptive-value("padding-left", 40, 15, 1);
+    @include adaptive-value("padding-right", 40, 15, 1);
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__item {
+    flex: 0 0 calc(50% - 20px);
+    @include adaptive-value("margin-bottom", 100, 80, 1);
+    @media (max-width: 1000px) {
+      flex: 0 0 100%;
+    }
+  }
+  &__wrapper {
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    height: 100%;
+    @include adaptive-value("padding-top", 42, 15, 1);
+    @include adaptive-value("padding-bottom", 42, 15, 1);
+    @include adaptive-value("padding-left", 35, 12, 1);
+    @include adaptive-value("padding-right", 35, 12, 1);
+    @media (max-width: 450px) {
+      padding: 0;
+      border: none;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__name {
+    margin-bottom: 20px;
+    @include adaptive-value("margin-top", -71, -44, 1);
+    @include adaptive-value("padding-left", 35, 20, 1);
+    @include adaptive-value("padding-right", 35, 20, 1);
+    @media (max-width: 450px) {
+      padding: 0;
+    }
+    display: flex;
+    align-items: center;
+    height: 58px;
+    background-color: rgba(231,238,235,1);
+  }
+  &__icon {
+    flex: 0 0 58px;
+    width: 100%;
+    @include adaptive-value("margin-right", 30, 20, 1);
+  }
+  &__body {
+    background-color: #ffffff;
+    @include adaptive-value("padding-top", 55, 20, 1);
+    @include adaptive-value("padding-bottom", 55, 20, 1);
+    @include adaptive-value("padding-left", 30, 15, 1);
+    @include adaptive-value("padding-right", 60, 15, 1);
+    border-radius: 2px;
+    height: 100%;
+  }
+}

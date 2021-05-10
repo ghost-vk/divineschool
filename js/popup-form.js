@@ -500,8 +500,9 @@ MOROZ.Popup.response = {
                 data[sel.getAttribute('data-name')] = sel.options[sel.selectedIndex].text;
             }
 
-            // data.title = popupForm.title;
-            data.nonce = popupForm.nonce;
+            let state = store.getState("general");
+
+            data.nonce = state.nonce;
             data.action = popup.attr('data-action');
 
             if (typeof dataEvent !== "undefined") {
@@ -544,7 +545,8 @@ MOROZ.Popup.response = {
          */
         function reloadPage(response) {
             if (response.success === "yes") {
-                document.location.href = popupForm.userAccountURL;
+                let state = store.getState("general");
+                document.location.href = state.userAccountURL;
             }
         }
 
@@ -584,10 +586,12 @@ MOROZ.Popup.response = {
                 alertWindow.removeClass('active');
             }, 3500);
 
+            let state = store.getState("general");
+
             data = {
                 action: button.attr('data-action'),
                 product: button.attr('data-product'),
-                nonce: popupForm.nonce
+                nonce: state.nonce
             };
 
             if (typeof dataEvent !== "undefined") {
@@ -596,7 +600,7 @@ MOROZ.Popup.response = {
             }
 
             if (typeof data.action === "string") {
-                $.post( popupForm.url, data, function (response) {
+                $.post( state.ajaxUrl, data, function (response) {
                     console.log(response); // Test
                 });
             }
@@ -647,7 +651,8 @@ MOROZ.Popup.response = {
 
                 // Send data
                 data = collectData(popupWindow);
-                $.post( popupForm.url, data, function (response) {
+                let state = store.getState("general");
+                $.post( state.ajaxUrl, data, function (response) {
                     // console.log(response); // Test
 
                     if (response === "ok"  && typeof response.reminder === "undefined") {

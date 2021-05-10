@@ -1,0 +1,18 @@
+p, a, span, h1, h2, h3, h4, h5, h6, li, pre, label, div, button, input, input::placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 120%;
+  color: #000000;
+}
+
+h1 {
+  font-size: 80px;
+}
+@media (max-width: 1200px) {
+  h1 {
+    font-size: calc(60px + 20 * ((100vw - 320px) / 880));
+  }
+}
+
+/*# sourceMappingURL=typography.css.map */

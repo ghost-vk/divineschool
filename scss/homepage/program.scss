@@ -1,0 +1,92 @@
+@import "./../templates/colors";
+
+.courseProgram {
+  @include adaptive-value("margin-bottom", 100, 60, 1);
+  &__wrapper {
+    @include adaptive-value("max-width", 1200, 280, 1);
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+    margin-left: auto;
+    margin-right: auto;
+    h2 {
+      @include adaptive-value("margin-bottom", 70, 40, 1);
+      @media (max-width: 768px) {
+        padding-left: 16.5px;
+        padding-right: 16.5px;
+      }
+    }
+  }
+  &__tab {
+    position: relative;
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+    input:checked ~ .courseProgram__answer {
+      max-height: 100vh;
+      margin-bottom: 15px;
+    }
+    input:checked ~ label .courseProgram__icon {
+      background-color: $black;
+    }
+    input:checked ~ label .courseProgram__icon::after {
+      background-color: transparent;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      background-color: #ffffff;
+      @include adaptive-value("padding-left", 30, 15, 1);
+      @include adaptive-value("padding-right", 30, 15, 1);
+      @include adaptive-value("padding-top", 15, 8, 1);
+      @include adaptive-value("padding-bottom", 15, 8, 1);
+      @include adaptive-value("margin-bottom", 35, 15, 1);
+      p {
+        @include adaptive-value("font-size", 30, 16, 1);
+      }
+    }
+  }
+  &__icon {
+    position: relative;
+    @include adaptive-value("width", 50, 25, 1);
+    @include adaptive-value("height", 50, 25, 1);
+    @include adaptive-value("margin-right", 30, 15, 1);
+    border-radius: 50%;
+    transition: background-color .2s ease;
+    border: 1px solid $black;
+  }
+  &__icon::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    @include adaptive-value("width", 32, 14, 1);
+    height: 2px;
+    background-color: $gray;
+  }
+  &__icon::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    @include adaptive-value("height", 32, 14, 1);
+    width: 2px;
+    transition: background-color .15s ease;
+    background-color: $gray;
+  }
+  &__answer {
+    flex: 0 0 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, margin-bottom .3s ease;
+    @include adaptive-value("padding-left", 30, 10, 1);
+    @include adaptive-value("padding-right", 30, 10, 1);
+  }
+}

@@ -1,6 +1,8 @@
 @import "colors";
+@import "./templates/adaptive-value";
 .coursePage {
   padding-top: 70px;
+  @include adaptive-value("margin-bottom", 80, 40, 1);
   &__title {
     text-align: center;
     margin-bottom: 30px;

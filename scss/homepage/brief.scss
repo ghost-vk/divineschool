@@ -1,0 +1,75 @@
+.courseBrief {
+  @include adaptive-value("padding-bottom", 90, 40, 1);
+  @include adaptive-value("margin-bottom", 50, 25, 1);
+  @media (max-width: 1200px) {
+    @include adaptive-value("padding-left", 40, 15, 1);
+    @include adaptive-value("padding-right", 40, 15, 1);
+  }
+  h2 {
+    @include adaptive-value("margin-bottom", 75, 55, 1);
+  }
+  &__row {
+    display: flex;
+  }
+  &__image {
+    flex: 0 0 447px;
+    @include adaptive-value("flex-basis", 447, 223, 1);
+    @media (max-width: 768px) {
+      display: none;
+    }
+    img {
+      border-radius: 2px;
+    }
+  }
+  &__items {
+    @include adaptive-value("padding-left", 150, 20, 1);
+    @include adaptive-value("padding-right", 40, 0, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__element {
+    @include adaptive-value("height", 75, 50, 1);
+    @include adaptive-value("margin-bottom", 70, 30, 1);
+    position: relative;
+  }
+  &__element:last-child {
+    margin-bottom: 0;
+  }
+  &__element::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -55px;
+    @media (max-width: 768px) {
+      left: -30px;
+    }
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+  }
+  &__element::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -52px;
+    @media (max-width: 768px) {
+      left: -27px;
+    }
+    background-color: #FFFFFF;
+    width: 2px;
+    height: 170px;
+    @media (max-width: 768px) {
+      height: 100px;
+    }
+  }
+  &__element:last-child::before {
+    background-color: #e7eeeb;
+    height: 70px;
+    @media (max-width: 768px) {
+      height: 40px;
+    }
+  }
+}

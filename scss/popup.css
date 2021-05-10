@@ -379,6 +379,8 @@
 .moroz-popup__response-wrapper img {
   width: 63px;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .moroz-popup__response-wrapper p {
   color: #333333;
@@ -545,6 +547,35 @@
   .btn-big {
     padding: 22px 88px !important;
     font-size: 16px !important;
+  }
+}
+
+@-webkit-keyframes rotatingLoader {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotatingLoader {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 

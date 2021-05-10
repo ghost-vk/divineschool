@@ -1,0 +1,9 @@
+.packagesComparing {
+  @include adaptive-value("margin-bottom", 80, 40, 1);
+  &__name {
+    font-weight: 500!important;
+  }
+  span {
+    @include adaptive-value("font-size", 15, 9, 1);
+  }
+}

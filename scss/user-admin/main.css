@@ -1,0 +1,50 @@
+.adminNav {
+  background-color: #0d5257;
+  padding-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  border-radius: 2px;
+  padding: 5px;
+}
+.adminNav__item {
+  margin-right: 15px;
+  background-color: #c4c4c4;
+  padding: 5px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.adminNav__item div {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #ffffff;
+}
+.adminNav__item i {
+  font-size: 30px !important;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.adminNav__item-emails {
+  background-color: #3e5b8a;
+}
+.adminNav__item:last-child {
+  margin-right: 0;
+}
+
+.actionForm__step {
+  padding: 10px 15px;
+  background-color: #e6f5e1;
+  border-radius: 2px;
+}
+
+#main {
+  min-height: 100vh;
+}
+
+.adminPage__wrapper {
+  border: 1px solid #0d5257;
+  border-radius: 2px;
+  margin: 50px 0;
+}
+
+/*# sourceMappingURL=main.css.map */

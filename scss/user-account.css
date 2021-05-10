@@ -2,4 +2,8 @@
   width: 100%;
 }
 
+.userAccount__contacts a {
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=user-account.css.map */

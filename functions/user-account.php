@@ -17,7 +17,7 @@ if ( wp_doing_ajax() ) { // Add ajax actions only when it necessary
  * Authenticates user (need to reload page)
  */
 function authenticate_user() {
-	check_ajax_referer( 'user_nonce', 'nonce' ); // Check nonce code
+	check_ajax_referer( 'divine_nonce', 'nonce' ); // Check nonce code
 	
 	$password = $_POST['password'];
 	$email = $_POST['email'];
@@ -60,7 +60,7 @@ function authenticate_user() {
  * Send link to reset password
  */
 function send_reset_link() {
-	check_ajax_referer( 'user_nonce', 'nonce' ); // Check nonce code
+	check_ajax_referer( 'divine_nonce', 'nonce' ); // Check nonce code
 	$response = array();
 	
 	$email = $_POST['email'];
@@ -120,7 +120,7 @@ function send_reset_link() {
  * Reset password // TODO Нонс + тест
  */
 function reset_user_password() {
-	check_ajax_referer( 'user_nonce', 'nonce' ); // Check nonce code
+	check_ajax_referer( 'divine_nonce', 'nonce' ); // Check nonce code
 	$response = array(
 		"action" => "reload",
 	);

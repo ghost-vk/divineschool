@@ -1,10 +1,16 @@
 .documentPage {
   padding-top: 60px;
   padding-top: 60px;
+  margin-bottom: 80px;
 }
 @media (max-width: 1080px) {
   .documentPage {
     padding-top: calc(30px + 30 * ((100vw - 320px) / 760));
+  }
+}
+@media (max-width: 1080px) {
+  .documentPage {
+    margin-bottom: calc(40px + 40 * ((100vw - 320px) / 760));
   }
 }
 .documentPage h1, .documentPage h3 {

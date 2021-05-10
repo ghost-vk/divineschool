@@ -1,0 +1,9 @@
+.courseCard-home_first, .courseCard-home_second {
+  @include adaptive-value("margin-bottom", 100, 80, 1);
+  .courseCard {
+    @include adaptive-value("margin-bottom", 60, 25, 1);
+  }
+  .courseCard:last-child {
+    margin-bottom: 0;
+  }
+}

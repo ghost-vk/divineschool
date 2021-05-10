@@ -44,13 +44,33 @@
 	<div class="col-md-3">
 		<div class="userAccount__contacts bg-warning p-3 mb-3 rounded">
 			<h3 class="mb-3 text-center"><i class="fas fa-question-circle"></i>&nbsp;&nbsp;Поддержка</h3>
-			<p><?php the_field('support_text'); ?><br><br>
-                <?php if ( have_rows('support_repeater') ) : ?>
-                    <?php while ( have_rows('support_repeater') ) : the_row(); ?>
-                        <?php $link = get_sub_field('link'); ?>
-                        <a href="<?php echo esc_url($link['url']); ?>" target="_blank"><?php echo $link['title']; ?></a><br>
-                    <?php endwhile; ?>
-                <?php endif; ?>
+			<p>Если у вас возникли вопросы, пишите нам:<br /><br />
+				<?php $whats_app = get_field('contacts_wa', 'option'); ?>
+				<?php if ( $whats_app ) : ?>
+                    <a href="https://api.whatsapp.com/send?phone=<?php echo $whats_app; ?>" target="_blank">
+                        <i class="fab fa-whatsapp"></i> What's App
+                    </a><br />
+				<?php endif; ?>
+				<?php $email = get_field('contacts_email', 'option'); ?>
+				<?php if ( $email ) : ?>
+                    <a href="mailto:<?php echo $email; ?>" target="_blank">
+                        <i class="far fa-envelope"></i>&nbsp;&nbsp;<?php echo $email; ?>
+                    </a><br />
+				<?php endif; ?>
+				
+				<?php $phone = get_field('contacts_phone', 'option'); ?>
+				<?php if ( $phone ) : ?>
+                    <a href="<?php echo $phone['url']; ?>" target="_blank">
+                        <i class="fas fa-phone-alt"></i>&nbsp;&nbsp;<?php echo $phone['title']; ?>
+                    </a><br />
+				<?php endif; ?>
+				
+				<?php $instagram_link = get_field('contacts_instagram', 'option'); ?>
+				<?php if ( $instagram_link ) : ?>
+                    <a href="<?php echo $instagram_link; ?>" target="_blank">
+                        <i class="fab fa-instagram"></i>&nbsp;&nbsp;Instagram
+                    </a><br />
+				<?php endif; ?>
 			</p>
 		</div>
         <?php if ( have_rows('notifications_repeater') ) : ?>

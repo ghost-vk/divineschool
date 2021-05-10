@@ -2,7 +2,7 @@
 <div class="woocommerce-billing-fields">
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 	
-	<div class="woocommerce-billing-fields__field-wrapper">
+	<div class="woocommerce-billing-fields__field-wrapper billingFields">
 		<?php
 		$fields = $checkout->get_checkout_fields( 'billing' );
 		
@@ -12,9 +12,9 @@
 		?>
         <div class="form-row">
             <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="checkPolicy">
+                <input class="form-check-input billingFields__check" type="checkbox" value="" id="checkPolicy">
                 <label class="form-check-label" for="checkPolicy">
-                    Я ознакомлен и согласен с <a href="<?php echo home_url('privacy'); ?>">Политикой конфиденциальности</a>
+                    <span class="billingFields__policy">Я ознакомлен и согласен с</span> <a href="<?php echo home_url('privacy'); ?>">Политикой конфиденциальности</a>
                     <abbr class="required" title="обязательно">*</abbr>
                 </label>
             </div>

@@ -1,0 +1,10 @@
+.container {
+  max-width: 1200px;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: calc(900px + 300 * ((100vw - 320px) / 880));
+  }
+}
+
+/*# sourceMappingURL=container.css.map */

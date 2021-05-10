@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "bootstrap": "^5.0.0-beta3"
+    "bootstrap": "^5.0.0-beta3",
+    "js-cookie": "^2.2.1",
+    "smooth-scroll": "^16.1.3"
   }
 }

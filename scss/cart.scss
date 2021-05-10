@@ -249,6 +249,7 @@
 .payment-form .products .item-name{
   font-weight:600;
   font-size: 0.9em;
+  padding-right: 55px;
 }
 
 .payment-form .products .item-description{
@@ -379,5 +380,13 @@ ul.item-description {
 
   .payment-form .card-details button:first-child {
     margin-top: 2em;
+  }
+}
+
+.billingFields {
+  &__check {
+    @media (max-width: 768px) {
+      margin-top: 5px;
+    }
   }
 }

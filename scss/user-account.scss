@@ -3,3 +3,11 @@
     width: 100%;
   }
 }
+
+.userAccount {
+  &__contacts {
+    a {
+      text-decoration: none;
+    }
+  }
+}
