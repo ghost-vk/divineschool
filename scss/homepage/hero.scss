@@ -99,6 +99,9 @@
     display: flex;
     @include adaptive-value("margin-bottom", 15, 8, 1);
     align-items: center;
+    span {
+      color: $secondary;
+    }
     img {
       @include adaptive-value("margin-right", 20, 10, 1);
     }

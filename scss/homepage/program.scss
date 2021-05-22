@@ -53,12 +53,14 @@
   }
   &__icon {
     position: relative;
-    @include adaptive-value("width", 50, 25, 1);
-    @include adaptive-value("height", 50, 25, 1);
     @include adaptive-value("margin-right", 30, 15, 1);
     border-radius: 50%;
     transition: background-color .2s ease;
     border: 1px solid $black;
+    flex: 0 0;
+    @include adaptive-value("flex-basis", 50, 25, 1);
+    @include adaptive-value("height", 50, 25, 1);
+    @include adaptive-value("width", 50, 25, 1);
   }
   &__icon::before {
     position: absolute;

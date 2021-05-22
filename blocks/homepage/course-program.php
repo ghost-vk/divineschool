@@ -11,7 +11,7 @@
                     <div class="courseProgram__tab">
                         <input type="checkbox" id="faq-<?php echo $i; ?>" />
                         <label for="faq-<?php echo $i; ?>">
-                            <div class="courseProgram__icon"></div>
+                            <div class="courseProgram__icon animate__animated"></div>
                             <p><?php the_sub_field('header'); ?></p>
                         </label>
                         <div class="courseProgram__answer">

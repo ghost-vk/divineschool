@@ -60,4 +60,9 @@
     for (let i = 0, max = addToCartButtons.length; i < max; i += 1) {
         addToCartButtons[i].addEventListener("click", addToCart);
     }
+
+    $(document).ready(function () {
+        let questionIcons = $('.courseProgram__icon');
+        questionIcons.viewportChecker({classToAdd: 'animate__heartBeat'});
+    });
 })(jQuery);

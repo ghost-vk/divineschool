@@ -1,0 +1,9 @@
+import './../scss/main.scss';
+import './../scss/general/general.scss';
+import './../scss/popup.scss';
+import './../scss/page-document.scss';
+import './../node_modules/animate.css/animate.min.css';
+import './../scss/homepage/main.scss';
+import './../scss/cart.scss';
+import './../scss/user-account.scss';
+import './../scss/product.scss';
