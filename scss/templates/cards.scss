@@ -94,6 +94,8 @@
     li {
       @include adaptive-value("margin-bottom", 20, 5, 1);
       @include adaptive-value("font-size", 25, 13, 1);
+      @include adaptive-value("padding-left", 20, 10, 1);
+      @include adaptive-value("padding-right", 20, 10, 1);
     }
     li:last-of-type {
       @include adaptive-value("margin-bottom", 50, 25, 1);

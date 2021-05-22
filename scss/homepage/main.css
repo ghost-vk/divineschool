@@ -140,6 +140,8 @@
 .courseCard__features li {
   margin-bottom: 20px;
   font-size: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media (max-width: 1200px) {
   .courseCard__features li {
@@ -149,6 +151,16 @@
 @media (max-width: 1200px) {
   .courseCard__features li {
     font-size: calc(13px + 12 * ((100vw - 320px) / 880));
+  }
+}
+@media (max-width: 1200px) {
+  .courseCard__features li {
+    padding-left: calc(10px + 10 * ((100vw - 320px) / 880));
+  }
+}
+@media (max-width: 1200px) {
+  .courseCard__features li {
+    padding-right: calc(10px + 10 * ((100vw - 320px) / 880));
   }
 }
 .courseCard__features li:last-of-type {
