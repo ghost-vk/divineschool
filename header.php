@@ -33,15 +33,6 @@
                             <a href="#course-program" class="header__link header__link-element">Программа курса</a>
                             <a href="#author" class="header__link header__link-element">Об авторе</a>
                         <?php endif; ?>
-                        
-                        <a href="<?php the_field('contacts_instagram', 'option'); ?>" target="_blank"
-                           class="header__link header__link-element">
-                            <i class="fab fa-instagram"></i>&nbsp;Instagram
-                        </a>
-                        <a href="https://api.whatsapp.com/send?phone=<?php the_field('contacts_wa', 'option'); ?>"
-                           target="_blank" class="header__link header__link-element">
-                            <i class="fab fa-whatsapp"></i>&nbsp;What's App
-                        </a>
                     </div>
                     <?php if ( is_mobile() ) : ?>
                         <div class="header__mobile">
