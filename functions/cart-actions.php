@@ -15,12 +15,17 @@ if ( wp_doing_ajax() ) {
 }
 function add_course_to_cart() {
 	check_ajax_referer('divine_nonce', 'nonce');
-	if ( ! isset($_POST['id']) || ! wc_get_product($_POST['id']) ) {
+	if ( ! isset($_POST['id']) ) {
+		wp_send_json( array('status' => 'fail') );
+		wp_die();
+	}
+	$product = wc_get_product($_POST['id']);
+	if ( ! $product ) {
 		wp_send_json( array('status' => 'fail') );
 		wp_die();
 	}
 	global $woocommerce;
-	$is_added = $woocommerce->cart->add_to_cart($_POST['id']);
+	$is_added = $woocommerce->cart->add_to_cart($product->get_id());
 	$status = ( $is_added ) ? 'success' : 'fail';
 	
 	$cart_items = $woocommerce->cart->get_cart();

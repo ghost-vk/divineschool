@@ -188,16 +188,17 @@ function my_custom_login_logo() {
 	</style>
 	';
 }
+
 function reset_admin_wplogo(  ){
-	remove_action( 'admin_bar_menu', 'wp_admin_bar_wp_menu', 10 ); // удаляем стандартную панель (логотип)
+	remove_action( 'admin_bar_menu', 'wp_admin_bar_wp_menu', 10 );
 	
-	add_action( 'admin_bar_menu', 'my_admin_bar_wp_menu', 10 ); // добавляем свою
+	add_action( 'admin_bar_menu', 'my_admin_bar_wp_menu', 10 );
 }
+
 function my_admin_bar_wp_menu( $wp_admin_bar ) {
 	$wp_admin_bar->add_menu( array(
 		'id'    => 'wp-logo',
 		'title' => '<img style="max-width:30px;height:auto;" src="'. get_bloginfo('template_directory') .'/images/logo.png" alt="" >',
-		// можно вставить картинку
 		'href'  => home_url(),
 		'meta'  => array(
 			'title' => 'О моем сайте',
@@ -244,4 +245,12 @@ function remove_menus(){
 	remove_submenu_page( 'edit.php?post_type=product', 'edit-tags.php?taxonomy=product_cat&amp;post_type=product' );
 	remove_submenu_page( 'edit.php?post_type=product', 'edit-tags.php?taxonomy=product_tag&amp;post_type=product' );
 	remove_submenu_page( 'edit.php?post_type=product', 'product_attributes');
+}
+
+/**
+ * Changes footer text
+ */
+add_filter( 'admin_footer_text', 'admin_footer_copyright' );
+function admin_footer_copyright() {
+	return '<span class="footer-copyright">Сайт разработан <a href="https://api.whatsapp.com/send?phone=79019833133">ghost-vk</a></span>';
 }

@@ -52,7 +52,6 @@
   }
   &__image-container::before {
     @media (max-width: 768px) {
-
       position: absolute;
       top: 0;
       right: 0;
@@ -94,6 +93,7 @@
   }
   &__btn {
     @include adaptive-value("margin-bottom", 40, 10, 1);
+    text-align: center;
   }
   &__check {
     display: flex;

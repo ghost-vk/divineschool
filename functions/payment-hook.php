@@ -12,7 +12,7 @@ function need_processing_false_filter() {
  * Set booking status completed after successful payment
  */
 add_action( 'woocommerce_order_status_completed', 'register_user_after_payment' );
-function register_user_after_payment( $order_id ) { // TODO Протестировать функцию с боевой платежной системой
+function register_user_after_payment( $order_id ) {
 	$WC_Order = new WC_Order($order_id);
 	if ( ! $WC_Order ) {
 		error_log("Can't get WC_Order object", 0);

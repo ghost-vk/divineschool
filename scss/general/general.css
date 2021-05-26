@@ -99,20 +99,20 @@ p, a, span, h1, h2, h3, h4, h5, h6, li, pre, label, div, button, input, input::p
 }
 
 h1 {
-  font-size: 70px;
-  line-height: 1.1628;
+  font-size: 60px;
+  line-height: 1.13;
   text-transform: uppercase;
   letter-spacing: 0;
 }
 @media (max-width: 1200px) {
   h1 {
-    font-size: calc(50px + 20 * ((100vw - 320px) / 880));
+    font-size: calc(34px + 26 * ((100vw - 320px) / 880));
   }
 }
 
 h2 {
   font-size: 50px;
-  line-height: 1.1628;
+  line-height: 1.1328;
   text-transform: uppercase;
   letter-spacing: 0;
 }

@@ -416,6 +416,7 @@
 }
 .homeHero__btn {
   margin-bottom: 40px;
+  text-align: center;
 }
 @media (max-width: 1200px) {
   .homeHero__btn {

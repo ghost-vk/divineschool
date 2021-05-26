@@ -56,15 +56,22 @@ global $woocommerce;
 						<?php
 						$WC_Payment_Gateways = new WC_Payment_Gateways();
 						$available_gateways = $WC_Payment_Gateways->get_available_payment_gateways();
-//						$gateway_test = $available_gateways["cheque"]; // TODO Сменить тип платежной системы на боевой (Касса)
+						$gateway_test = $available_gateways["cheque"];
 						$gateway_paypal = $available_gateways["paypal"];
 						$gateway_yookassa = $available_gateways["yookassa_epl"];
 						?>
                         <div class="d-block my-1">
-<!--                            <div class="custom-control custom-radio payment-method">-->
-<!--                                <input id="credit" name="payment_method" type="radio" class="custom-control-input" value="--><?php //echo esc_attr( $gateway_test->id ); ?><!--" checked="checked">-->
-<!--                                <label class="custom-control-label mb-0 payment-label" for="credit">Оплата картой&nbsp;&nbsp;<i class="far fa-credit-card"></i></label>-->
-<!--                            </div>-->
+                            <?php if ( get_current_user_id() === 1 ) : // Test payment for superadmin ?>
+                                <div class="custom-control custom-radio payment-method">
+                                    <input id="credit" name="payment_method" type="radio" class="custom-control-input" value="<?php echo esc_attr( $gateway_test->id ); ?>" checked="checked">
+                                    <label class="custom-control-label mb-0 payment-label" for="credit">Тестовая оплата&nbsp;&nbsp;<i class="far fa-credit-card"></i></label>
+                                </div>
+                                <div class="method-description">
+                                    <p class="text">
+                                        Метод оплаты для тестирования платежей. Если вы это видите, не выбирайте этот метод, вам не будет предоставлена услуга.
+                                    </p>
+                                </div>
+                            <?php endif; ?>
                             <div class="custom-control custom-radio payment-method">
                                 <input id="yookassa_payment_method" name="payment_method" type="radio"
                                        class="custom-control-input" checked="checked"

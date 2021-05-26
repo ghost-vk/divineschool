@@ -117,7 +117,7 @@ function send_reset_link() {
 
 
 /**
- * Reset password // TODO Нонс + тест
+ * Reset password
  */
 function reset_user_password() {
 	check_ajax_referer( 'divine_nonce', 'nonce' ); // Check nonce code

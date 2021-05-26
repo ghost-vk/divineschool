@@ -10,15 +10,15 @@ p, a, span, h1, h2, h3, h4, h5, h6, li, pre, label, div, button, input, input::p
 }
 
 h1 {
-  @include adaptive-value("font-size", 70, 50, 1);
-  line-height: 1.1628;
+  @include adaptive-value("font-size", 60, 34, 1);
+  line-height: 1.13;
   text-transform: uppercase;
   letter-spacing: 0;
 }
 
 h2 {
   @include adaptive-value("font-size", 50, 36, 1);
-  line-height: 1.1628;
+  line-height: 1.1328;
   text-transform: uppercase;
   letter-spacing: 0;
 }
