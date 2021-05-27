@@ -26,12 +26,12 @@ function add_scripts () {
 	wp_enqueue_script('js-cookie', $directory . '/node_modules/js-cookie/src/js.cookie.js', array(), null, true);
 	
 	// Local scripts
-	wp_enqueue_script('utils-divine', $directory . '/js/lib/Utils.js?v=1.0.3', array(), null, true);
-	wp_enqueue_script('store', $directory . '/js/store/store.js?v=1.0.3', array('utils-divine'), null, true);
-	wp_enqueue_script('notification', $directory . '/js/lib/Notification.js?v=1.0.3', array(), null, true);
-	wp_enqueue_script('cookie-notification', $directory . '/js/lib/NotificationCookie.js?v=1.0.3', array('js-cookie'), null, true);
-	wp_enqueue_script('header', $directory . '/js/components/header.js?v=1.0.3', array(), null, true);
-	wp_enqueue_script('user-popup-form', $directory . '/js/popup-form.js?v=1.0.3', array('jquery'), null, true);
+	wp_enqueue_script('utils-divine', $directory . '/js/lib/Utils.js?v=2.0.0', array(), null, true);
+	wp_enqueue_script('store', $directory . '/js/store/store.js?v=2.0.0', array('utils-divine'), null, true);
+	wp_enqueue_script('notification', $directory . '/js/lib/Notification.js?v=2.0.0', array(), null, true);
+	wp_enqueue_script('cookie-notification', $directory . '/js/lib/NotificationCookie.js?v=2.0.0', array('js-cookie'), null, true);
+	wp_enqueue_script('header', $directory . '/js/components/header.js?v=2.0.0', array(), null, true);
+	wp_enqueue_script('user-popup-form', $directory . '/js/popup-form.js?v=2.0.0', array('jquery'), null, true);
 	
 	wp_localize_script('store', 'appSettings', array(
 		'userAccountURL' => home_url('/user'),
@@ -41,10 +41,10 @@ function add_scripts () {
 	
 	// Homepage
 	if ( is_front_page() ) {
-		wp_enqueue_script('flipdown', $directory . '/js/flipdown/flipdown.js?v=1.0.3', array('jquery'), null, true);
+		wp_enqueue_script('flipdown', $directory . '/js/flipdown/flipdown.js?v=2.0.0', array('jquery'), null, true);
 		wp_enqueue_script( 'viewport-checker', $directory
 			. '/node_modules/jquery-viewport-checker/src/jquery.viewportchecker.js', array('jquery'), null, true );
-		wp_enqueue_script('homepage', $directory . '/js/components/homepage.js?v=1.0.3',
+		wp_enqueue_script('homepage', $directory . '/js/components/homepage.js?v=2.0.0',
 			array('flipdown', 'notification', 'viewport-checker'), null, true);
 		
 		$course_product_id = get_field('course_product_id')[0];
@@ -58,6 +58,6 @@ function add_scripts () {
 	// Checkout
 	if ( is_page('checkout') ) {
 		wp_dequeue_script('wc-checkout');
-		wp_enqueue_script('checkout', $directory . '/js/checkout.js?v=1.0.3', array('jquery'), null, true);
+		wp_enqueue_script('checkout', $directory . '/js/checkout.js?v=2.0.0', array('jquery'), null, true);
 	}
 }
