@@ -7,19 +7,13 @@ if ( ! isset($_COOKIE['visitor']) ) { // First visit user account
 }
 ?>
 <?php get_header(); ?>
-
     <div class="container">
         <div class="userAccount py-5">
             <div class="userAccount__title text-center mb-5">
                 <h3 class="text-primary">Кабинет пользователя</h3>
             </div>
-            
-            <!--      USER NAVIGATION      -->
-<!--            --><?php //require_once __DIR__  . './../blocks/user-nav.php'; ?>
-            
             <!--      PURCHASES LIST      -->
 			<?php require_once __DIR__  . './../blocks/user-courses.php'; ?>
         </div>
     </div>
-
 <?php get_footer(); ?>

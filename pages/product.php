@@ -11,13 +11,11 @@ if ( ! $access ) { // If user haven't access to this course
 	header('Location: ' . home_url());
 }
 ?>
-
 <?php get_header(); ?>
-
 <div class="coursePage">
 	<div class="container">
-		<div class="coursePage__title">
-			<h3><?php the_title(); ?></h3>
+		<div class="coursePage__title w-75 mx-auto">
+			<h3 class="lh-sm"><?php the_title(); ?></h3>
 		</div>
         <?php
         $subtitle = get_field('product_subtitle');
@@ -29,7 +27,7 @@ if ( ! $access ) { // If user haven't access to this course
             </div>
         <?php endif; ?>
 		<div class="shedule">
-			<h3><?php the_field('product_shedule_title'); ?></h3>
+			<h3 class="lh-sm"><?php the_field('product_shedule_title'); ?></h3>
             <?php if ( have_rows('product_repeater') ) : ?>
                 <div class="shedule__row">
                 <?php while ( have_rows('product_repeater') ) : the_row(); ?>

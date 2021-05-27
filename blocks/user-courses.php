@@ -1,12 +1,14 @@
 <?php require_once __DIR__ . './../class/class-wc-course-product.php'; ?>
 <div class="row">
-	<div class="col-md-9">
+	<div class="col-xxl-9">
 		<?php if ( ! isset($_COOKIE['visitor']) ) : // Show hello first visit ?>
 			<div class="userAccount__hello mb-3">
 				<div class="rounded bg-warning py-5 px-3 text-center">
 					<h3 class="mb-3">Добро пожаловать!</h3>
-					<p>Спасибо, что выбрали нас!<br>
-						Здесь вы можете посмотреть выбранные курсы</p>
+					<p>
+                        Спасибо, что выбрали нас!<br />
+						Здесь вы можете посмотреть выбранные курсы
+                    </p>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -41,9 +43,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-3">
-		<div class="userAccount__contacts bg-warning p-3 mb-3 rounded">
-			<h3 class="mb-3 text-center"><i class="fas fa-question-circle"></i>&nbsp;&nbsp;Поддержка</h3>
+	<div class="col-xxl-3">
+		<div class="userAccount__contacts bg-warning p-3 mb-3 rounded text-center">
+			<h3 class="mb-3"><i class="fas fa-question-circle"></i>&nbsp;&nbsp;Поддержка</h3>
 			<p>Если у вас возникли вопросы, пишите нам:<br /><br />
 				<?php $whats_app = get_field('contacts_wa', 'option'); ?>
 				<?php if ( $whats_app ) : ?>
