@@ -26,6 +26,13 @@ $packages['id'] = array();
 $product = wc_get_product( $course_product_id );
 $variations = $product->get_available_variations('objects');
 $i = 1;
+
+require_once __DIR__ . '/../../ghost-plugins/prepayment-save-discount/Prepayment.php';
+$prepayment_plugin = new \Ghost\Prepayment\Prepayment();
+if ( $prepayment_plugin->IsPluginOn() ) {
+	$prepayment_product_id = get_field('prepayment_product_id', 'options')[0];
+}
+
 foreach ( $variations as $variation ) {
 	$package_attr = $variation->attributes['pa_package'];
 	if ( ! $package_attr ) {

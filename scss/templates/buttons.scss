@@ -48,8 +48,15 @@
 
 .mediumButton-green {
   background-color: #22a46a;
+  cursor: pointer;
   &:hover {
-    cursor: pointer;
     background-color: $secondary;
+  }
+}
+
+.mediumButton-purple {
+  background-color: #a45aec;
+  &:hover {
+    background-color: #713ca5;
   }
 }

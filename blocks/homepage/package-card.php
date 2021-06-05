@@ -60,6 +60,17 @@
                         </button>
                     <?php endif; ?>
                 </div>
+                <?php if ( isset($prepayment_product_id) ) : ?>
+                    <div class="courseCard__button mt-3">
+                        <a href="<?php echo home_url('/cart/?add-to-cart=' . $prepayment_product_id); ?>"
+                           class="d-block mediumButton mediumButton-purple text-decoration-none text-white">
+		                    Забронировать со скидкой
+                        </a>
+                    </div>
+                    <div class="text-center mt-2">
+                        <span>Бронирование со скидкой доступно в течение ограниченного времени</span>
+                    </div>
+                <?php endif; ?>
             <?php else : ?>
                 <!--    SELL CLOSED    -->
                 <div class="courseCard__closed">

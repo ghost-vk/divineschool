@@ -275,10 +275,17 @@ h3 {
 
 .mediumButton-green {
   background-color: #22a46a;
+  cursor: pointer;
 }
 .mediumButton-green:hover {
-  cursor: pointer;
   background-color: #0d5257;
+}
+
+.mediumButton-purple {
+  background-color: #a45aec;
+}
+.mediumButton-purple:hover {
+  background-color: #713ca5;
 }
 
 .container-1 {
