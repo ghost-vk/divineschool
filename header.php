@@ -58,7 +58,7 @@
                             <i class="fas fa-users-cog"></i>
                         </a>
                     <?php endif; ?>
-	                <?php if ( is_user_logged_in() ) : ?>
+	                <?php if ( is_user_logged_in() && current_user_can('administrator') ) : ?>
                         <a href="<?php echo home_url('/user'); ?>" class="header__link header__link-login">
                             <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;ЛК
                         </a>
