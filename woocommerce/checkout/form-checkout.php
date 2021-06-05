@@ -4,6 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $woocommerce;
+$total = $woocommerce->cart->get_cart_total();
+$subtotal = $woocommerce->cart->get_cart_subtotal();
 ?>
 
 <div class="container">
@@ -43,7 +45,12 @@ global $woocommerce;
 						}
 					}
 					?>
-                    <div class="total">Итого<span class="price"><?php echo $woocommerce->cart->get_cart_total(); ?></span></div>
+                    <?php if ( $total !== $subtotal ) : ?>
+                        <div class="total pb-2">Без скидки<span class="price"><?php echo $subtotal; ?></span></div>
+                        <div class="total">Итого (со скидкой)<span class="price"><?php echo $total; ?></span></div>
+                    <?php else : ?>
+                        <div class="total">Итого<span class="price"><?php echo $total; ?></span></div>
+                    <?php endif; ?>
                 </div>
                 <div class="card-details">
                     <h3 class="title">Оформление</h3>

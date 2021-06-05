@@ -46,3 +46,8 @@ require_once __DIR__ . '/functions/checkout.php';
  * Payment hooks
  */
 require_once __DIR__ . '/functions/payment-hook.php';
+
+/**
+ * Prepayment plugin
+ */
+require_once __DIR__ . '/ghost-plugins/prepayment-save-discount/prepayment-plugin.php';

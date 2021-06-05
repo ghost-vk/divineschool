@@ -13,7 +13,7 @@
 			</div>
 		<?php endif; ?>
 		<div class="coursesItems mb-md-0">
-			<div class="rounded bg-warning py-5 px-3 text-center">
+			<div class="rounded bg-warning py-5 px-3 text-center mb-3">
 				<h3 class="mb-5">Мои курсы</h3>
                 <?php $courses = get_user_paid_orders(); ?>
                 <?php if ( ! empty($courses) ) : // If have access to course ?>
@@ -41,6 +41,7 @@
                     <h5 class="text-center">Пока что у вас нет доступных курсов</h5>
                 <?php endif; ?>
 			</div>
+            <?php require_once __DIR__ . '/user-account/prepayment-block.php'; ?>
 		</div>
 	</div>
 	<div class="col-xxl-3">

@@ -27,10 +27,10 @@ defined( 'ABSPATH' ) || exit;
         <div class="thankYou">
             <div class="container">
                 <div class="jumbotron text-xs-center py-5 text-center">
-                    <h1 class="display-3">Спасибо!</h1>
+                    <h1 class="display-3 mb-3">Спасибо!</h1>
                     <p class="lead"><strong>Пожалуйста проверьте ваш email (и папку спам)</strong>, в письме вы найдете данные для входа в личный кабинет.</p>
                     <hr>
-                    <p>
+                    <p class="mb-2">
                         Есть вопросы? <a href="mailto:<?php the_field('email_link', 8); ?>">Напишите нам</a>
                     </p>
                     <p class="lead">

@@ -58,6 +58,11 @@
                             <i class="fas fa-users-cog"></i>
                         </a>
                     <?php endif; ?>
+	                <?php if ( is_user_logged_in() ) : ?>
+                        <a href="<?php echo home_url('/user'); ?>" class="header__link header__link-login">
+                            <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;ЛК
+                        </a>
+	                <?php endif; ?>
                     <?php if ( is_user_logged_in() ) : ?>
                         <a href="<?php echo wp_logout_url(home_url()); ?>" class="header__link header__link-login">
                             <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Выход
@@ -120,3 +125,4 @@
             </div>
         </div>
     <?php endif; ?>
+    

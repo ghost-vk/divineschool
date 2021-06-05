@@ -10,6 +10,8 @@ $course_product_id = get_field('course_product_id')[0];
 $project_name = get_field('project_name');
 ?>
 
+<?php require_once __DIR__ . '/../blocks/homepage/discount.php'; ?>
+
 <?php require_once __DIR__ . '/../blocks/homepage/hero.php'; ?>
 <?php require_once __DIR__ . '/../blocks/homepage/features.php'; ?>
 <?php require_once __DIR__ . '/../blocks/homepage/course-brief.php'; ?>

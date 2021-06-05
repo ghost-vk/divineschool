@@ -9,7 +9,7 @@ function need_processing_false_filter() {
 }
 
 /**
- * Set booking status completed after successful payment
+ * Register user and send login data after payment
  */
 add_action( 'woocommerce_order_status_completed', 'register_user_after_payment' );
 function register_user_after_payment( $order_id ) {

@@ -6,12 +6,11 @@ function include_my_template( $template ) {
 		return __DIR__ . '/../pages/home.php';
 	}
 
-	if ( is_page( // Document page (privacy policy and user agreement)
-		[
-			'privacy',
-			'user-agreement'
-		]
-	) ) {
+	if (
+		is_page( // Document page (privacy policy and user agreement)
+			array( 'privacy', 'user-agreement' )
+		)
+	) {
 		return __DIR__ . '/../pages/page-document.php';
 	}
 

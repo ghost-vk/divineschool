@@ -65,4 +65,20 @@
         let questionIcons = $('.courseProgram__icon');
         questionIcons.viewportChecker({classToAdd: 'animate__heartBeat'});
     });
+
+    // Discount after header row
+    let saleIcon = document.querySelector(".saleHeaderRow #sale-icon"),
+        saleBubble = saleIcon.parentNode.querySelector(".saleHeaderRow__bubble");
+    if ( saleIcon && saleBubble ) {
+        saleIcon.addEventListener("click", function (e) {
+            e.stopPropagation();
+            saleBubble.style.display = "block";
+        });
+        window.addEventListener('click', function (e) {
+            let target = e.target;
+            if (!saleBubble.contains(target) && !saleIcon.contains(target)) {
+                saleBubble.style.display = "none";
+            }
+        });
+    }
 })(jQuery);

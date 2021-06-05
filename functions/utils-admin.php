@@ -254,3 +254,10 @@ add_filter( 'admin_footer_text', 'admin_footer_copyright' );
 function admin_footer_copyright() {
 	return '<span class="footer-copyright">Сайт разработан <a href="https://api.whatsapp.com/send?phone=79019833133">ghost-vk</a></span>';
 }
+
+/**
+ * Test function
+ */
+function log_array($array) {
+	error_log(print_r($array, true), 0);
+}

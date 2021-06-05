@@ -10,7 +10,7 @@ if ( ! isset($_COOKIE['visitor']) ) { // First visit user account
     <div class="container">
         <div class="userAccount py-5">
             <div class="userAccount__title text-center mb-5">
-                <h3 class="text-primary">Кабинет пользователя</h3>
+                <h3 class="text-primary fw-bold">Кабинет пользователя</h3>
             </div>
             <!--      PURCHASES LIST      -->
 			<?php require_once __DIR__  . './../blocks/user-courses.php'; ?>

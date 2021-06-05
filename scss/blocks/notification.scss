@@ -113,7 +113,10 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    @include adaptive-value("right", -20, -5, 1);
+    right: -5px;
+    @media (max-width: 768px) {
+      right: 0;
+    }
     @include adaptive-value("font-size", 16, 12, 1);
     cursor: pointer;
   }

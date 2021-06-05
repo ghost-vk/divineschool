@@ -35,22 +35,23 @@ function add_course_to_cart() {
 }
 
 /**
- * Function clears cart. Used for save only one element in cart.
- * @param $cart_items
+ * Save only one product in cart
  */
-add_action('clear_cart', 'clear_cart_from_second_one', 10, 1);
-function clear_cart_from_second_one($cart_items) {
-	if ( count($cart_items) === 1 ) {
-		return;
-	}
+add_filter( 'woocommerce_add_to_cart_validation', 'save_only_one_in_cart', 9999, 2 );
+function save_only_one_in_cart( $passed, $added_product_id ) {
+	wc_empty_cart();
+	return $passed;
+}
+
+// Max quantity in cart is 1
+add_action( 'woocommerce_add_to_cart', 'set_quantity_only_one', 10, 6 );
+function set_quantity_only_one( $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data ) {
 	global $woocommerce;
-	$i = 1;
-	$count = count($cart_items);
-	foreach ( $cart_items as $cart_item_key => $item ) {
-		if ( $i === $count ) { // Last one
-			break;
+	$cart = $woocommerce->cart;
+	$cart_items = $cart->get_cart();
+	foreach ( $cart_items as $key => $item ) {
+		if ( (int)$item['quantity'] > 1 ) {
+			$woocommerce->cart->set_quantity($key);
 		}
-		$woocommerce->cart->remove_cart_item($cart_item_key);
-		$i += 1;
 	}
 }
