@@ -17,7 +17,7 @@ if ( $prepayment_plugin->IsPluginOn() ) :
 	            <?php echo $prepayment_main_text; ?>
             </span>
             <span class="position-relative">
-                <i class="saleHeaderRow__icon fas fa-info-circle text-primary" id="sale-icon"></i>
+                <i class="saleHeaderRow__icon fas fa-info-circle" id="sale-icon"></i>
                 <div class="saleHeaderRow__bubble rounded-2 overflow-hidden position-absolute shadow p-2">
                     <div>
                         <span>
