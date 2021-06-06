@@ -611,6 +611,7 @@ h3 {
 
 .saleHeaderRow {
   z-index: 3;
+  background-color: #a45aec;
   top: 60px;
 }
 @media (max-width: 1200px) {
@@ -621,9 +622,13 @@ h3 {
 .saleHeaderRow #reservation-link {
   cursor: pointer;
 }
+.saleHeaderRow span {
+  color: #fefefe;
+}
 
 .saleHeaderRow__icon {
   cursor: pointer;
+  color: #eb93b9;
 }
 
 .saleHeaderRow__bubble {

@@ -204,13 +204,18 @@
 
 .saleHeaderRow {
   z-index: 3;
+  background-color: #a45aec;
   @include adaptive-value("top", 60, 40, 1);
   #reservation-link {
     cursor: pointer;
   }
+  span {
+    color: #fefefe;
+  }
 }
 .saleHeaderRow__icon {
   cursor: pointer;
+  color: #eb93b9;
 }
 .saleHeaderRow__bubble {
   display: none;
