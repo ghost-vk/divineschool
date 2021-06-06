@@ -7,8 +7,8 @@ if ( $prepayment_plugin->IsPluginOn() ) :
 	$pm = preg_match('/{(.*)}/', $prepayment_main_text, $output_array);
 	if ( $pm ) {
 		$id = get_field('prepayment_product_id', 'options')[0];
-		$link_url = home_url('/cart/?add-to-cart=' . $id);
-		$link = '<a href="' . $link_url . '" class="text-primary text-decoration-underline">' . $output_array[1] . '</a>';
+//		$link_url = home_url('/cart/?add-to-cart=' . $id);
+		$link = '<a href="#packages" class="text-primary text-decoration-underline">' . $output_array[1] . '</a>';
 		
 		$prepayment_main_text = str_replace( $output_array[0], $link, $prepayment_main_text );
 	}

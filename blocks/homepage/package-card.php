@@ -60,9 +60,9 @@
                         </button>
                     <?php endif; ?>
                 </div>
-                <?php if ( isset($prepayment_product_id) ) : ?>
+                <?php if ( isset($prepayment_id) ) : ?>
                     <div class="courseCard__button mt-3">
-                        <a href="<?php echo home_url('/cart/?add-to-cart=' . $prepayment_product_id); ?>"
+                        <a href="<?php echo home_url('/cart/?add-to-cart=' . $prepayment_id); ?>"
                            class="d-block mediumButton mediumButton-purple text-decoration-none text-white">
 		                    Забронировать со скидкой
                         </a>

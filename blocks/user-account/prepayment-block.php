@@ -9,9 +9,19 @@ if ( ! empty($partially_paid_products) ) :
 	$first_variation_product = wc_get_product($first_variation_id);
 	$parent_id = $first_variation_product->get_parent_id();
 	$course_product = new \LASH\WC_Course_Product($parent_id);
+	$prepayment_product_id = get_paid_prepayment_product();
+	$prepayment_product_title = ( $prepayment_product_id ) ? get_the_title($prepayment_product_id) : '';
 	?>
     <div class="rounded bg-warning py-5 px-3 text-center">
-        <h3 class="mb-5 lh-base fw-bold">ДОСТУП ПО ПРЕДОПЛАТЕ</h3>
+        <h3 class="mb-5 lh-base fw-bold">
+            ДОСТУП ПО ПРЕДОПЛАТЕ<br />
+			<?php
+			if ( $prepayment_product_title ) {
+				echo $prepayment_product_title . '<br />';
+			}
+			?>
+            (до 12 июля)
+        </h3>
         <p class="mb-5">Вы уже частично оплатили курс и теперь для Вас сохранена скидка на следующие пакеты</p>
         <div class=" px-2">
 			<?php
@@ -28,7 +38,7 @@ if ( ! empty($partially_paid_products) ) :
                     <h3 class="mb-2 text-center lh-sm">"<?php echo $package_name; ?>"</h3>
                     <hr>
                     <p class="fs-5 lh-sm mb-3 text-center">Что входит в пакет?</p>
-                    <?php $course_product->print_features(); ?>
+					<?php $course_product->print_features(); ?>
                     <div class="d-flex justify-content-center mt-3">
                         <a href="<?php echo $link; ?>" class="btn btn-secondary">
                             Купить со скидкой<br />

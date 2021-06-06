@@ -20,6 +20,11 @@ $packages['images'] = array(
 	2 => get_field( "package_2_image", $course_product_id ),
 	3 => get_field( "package_3_image", $course_product_id ),
 );
+$packages['prepayment'] = array(
+	1 => get_field( 'package_1_prepayment', $course_product_id )[0],
+	2 => get_field( 'package_2_prepayment', $course_product_id )[0],
+	3 => get_field( 'package_3_prepayment', $course_product_id )[0],
+);
 $packages['price'] = array();
 $packages['id'] = array();
 
@@ -29,9 +34,7 @@ $i = 1;
 
 require_once __DIR__ . '/../../ghost-plugins/prepayment-save-discount/Prepayment.php';
 $prepayment_plugin = new \Ghost\Prepayment\Prepayment();
-if ( $prepayment_plugin->IsPluginOn() ) {
-	$prepayment_product_id = get_field('prepayment_product_id', 'options')[0];
-}
+$show_prepayment = $prepayment_plugin->IsPluginOn();
 
 foreach ( $variations as $variation ) {
 	$package_attr = $variation->attributes['pa_package'];
@@ -68,5 +71,8 @@ for ( $i = 1; $i <= 3; $i += 1 ) {
 	$bg_image = $packages['images'][$i];
 	$is_started = $is_course_started;
 	$package_id = $packages['id'][$i];
+	if ( $show_prepayment ) {
+		$prepayment_id = $packages['prepayment'][$i];
+	}
 	require __DIR__ . '/package-card.php';
 }
