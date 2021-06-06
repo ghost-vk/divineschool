@@ -3,7 +3,29 @@ namespace Ghost\Prepayment;
 
 require_once __DIR__ . '/DataAccessLayer.php';
 
+/**
+ * Class Implementor
+ *
+ * Used for implement saved data contained products and prices
+ *
+ * @package Ghost\Prepayment
+ */
 class Implementor {
+	/**
+	 * @param $user_id
+	 * @param string $implement_type
+	 *
+	 * Structure of returned data:
+	 *     Array (
+	 *       Array (
+	 *         'id' => 123
+	 *         'price' => 999
+	 *       ),
+	 *       Array ( ... ),
+	 *     )
+	 *
+	 * @return array|false|mixed
+	 */
 	public function Implement($user_id, $implement_type = 'raw') {
 		if ( ! in_array($implement_type, ['raw', 'with-links']) ){
 			return false;

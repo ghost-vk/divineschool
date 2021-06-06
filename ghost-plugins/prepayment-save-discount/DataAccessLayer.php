@@ -2,6 +2,14 @@
 
 namespace Ghost\Prepayment;
 
+/**
+ * Class DataAccessLayer
+ *
+ * Used for works with database data
+ * You can rewrite it and use f.e. Carbon Fields
+ *
+ * @package Ghost\Prepayment
+ */
 class DataAccessLayer {
 	private string $meta_key = '_prepayment_discount';
 	
@@ -22,14 +30,55 @@ class DataAccessLayer {
 		}
 	}
 	
+	/**
+	 * Method save products and prices to user in usermeta table
+	 *
+	 * Structure:
+	 *     Array (
+	 *       Array (
+	 *         'id' => 123
+	 *         'price' => 999
+	 *       ),
+	 *       Array ( ... ),
+	 *     )
+	 *
+	 * @param $user_id
+	 * @param $product_prices
+	 *
+	 * @return mixed
+	 */
 	public function Create($user_id, $product_prices) {
 		return update_user_meta($user_id, $this->meta_key, $product_prices);
 	}
 	
+	/**
+	 * Method removes records about discount from `usermeta` table
+	 *
+	 * @param $user_id
+	 *
+	 * @return mixed
+	 */
 	public function RemoveDiscount($user_id) {
 		return delete_user_meta($user_id, $this->meta_key);
 	}
 	
+	/**
+	 * Method returns meta data of products and prices
+	 * from usermeta
+	 *
+	 * Structure:
+	 *     Array (
+	 *       Array (
+	 *         'id' => 123
+	 *         'price' => 999
+	 *       ),
+	 *       Array ( ... ),
+	 *     )
+	 *
+	 * @param $user_id
+	 *
+	 * @return mixed
+	 */
 	public function Read($user_id) {
 		return get_user_meta($user_id, $this->meta_key);
 	}
@@ -37,6 +86,15 @@ class DataAccessLayer {
 	/**
 	 * Method should be hooked on 'woocommerce_after_register_post_type'
 	 * @param $product_id Prepayment product ID
+	 *
+	 * Structure:
+	 *     Array (
+	 *       Array (
+	 *         'id' => 123
+	 *         'price' => 999
+	 *       ),
+	 *       Array ( ... ),
+	 *     )
 	 *
 	 * @return array
 	 */

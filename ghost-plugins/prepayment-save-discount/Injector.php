@@ -71,7 +71,8 @@ class Injector {
 		if ( ! $this->user_id || ! $this->product_prices ) {
 			return false;
 		}
+		$dal = new DataAccessLayer();
 		
-		(new DataAccessLayer())->Create($this->user_id, $this->product_prices);
+		$dal->Create($this->user_id, $this->product_prices);
 	}
 }

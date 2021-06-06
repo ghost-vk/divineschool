@@ -7,6 +7,13 @@ require_once __DIR__ . '/Implementor.php';
 require_once __DIR__ . '/CartDiscountMaker.php';
 require_once __DIR__ . '/Utils.php';
 
+/**
+ * Class Prepayment
+ *
+ * Handler class for interact with API
+ *
+ * @package Ghost\Prepayment
+ */
 class Prepayment {
 	public $user_id;
 	
@@ -52,6 +59,11 @@ class Prepayment {
 		(new Injector($this->user_id, $product_price))->AddSale();
 	}
 	
+	/**
+	 * Method removes discount from user
+	 *
+	 * @param null $order_id (Successful payment order)
+	 */
 	public function RemoveDiscount($order_id = null) {
 		if ( ! $this->user_id ) {
 			$this->SetUserID();
@@ -79,6 +91,9 @@ class Prepayment {
 		}
 	}
 	
+	/**
+	 * Method returns product ids and prices with discount
+	 */
 	public function GetDiscountProducts() {
 		if ( ! $this->user_id ) {
 			$this->SetUserID();
@@ -86,6 +101,9 @@ class Prepayment {
 		return (new Implementor())->Implement($this->user_id);
 	}
 	
+	/**
+	 * Method calculate discount amount in cart
+	 */
 	public function ListenCart() {
 		$data = $this->GetDiscountProducts();
 		if ( ! empty($data) && $this->user_id ) { // Check discount for user
@@ -93,6 +111,10 @@ class Prepayment {
 		}
 	}
 	
+	/**
+	 * Method add or delete discount for user
+	 * (depends on products in order)
+	 */
 	public function ListenPurchase($order_id) {
 		$this->SetUserID($order_id);
 		$utils = new Utils();
@@ -110,6 +132,9 @@ class Prepayment {
 		$this->RemoveDiscount($order_id);
 	}
 	
+	/**
+	 * Method set user to interact with
+	 */
 	public function SetUserID($order_id = null) {
 		if ( is_user_logged_in() ) {
 			$this->user_id = get_current_user_id();
