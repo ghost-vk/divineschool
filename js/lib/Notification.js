@@ -72,7 +72,6 @@ class Notification {
      */
     _createTemplate() {
         let template;
-        console.log(this.text);
         template = `
             <div class="notification__row notification__row-center">`;
         if (this.type === "text-content") {

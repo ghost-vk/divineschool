@@ -15,6 +15,7 @@
         let notification = new Notification(notificationContainer, { type: "loader" } );
         let productID = e.target.dataset.id;
         let state, data, notificationText;
+        let packageID = e.target.getAttribute('data-package');
         state = store.getState("general");
         data = {
             nonce: state.nonce,
@@ -41,6 +42,9 @@
                         notificationText = "Добавлено в корзину";
                         showResponse(notification, notificationText);
                         showCart();
+                        if (typeof ym === 'function' && packageID) {
+                            analytics.send('add_to_cart_full_' + packageID);
+                        }
                         break;
                     }
                     case "fail" : {
