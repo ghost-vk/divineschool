@@ -68,7 +68,7 @@
                         <a href="<?php echo home_url('/cart/?add-to-cart=' . $prepayment_id); ?>"
 							<?php if (isset($i)) echo 'data-package="' . $i . '"'; ?>
                            class="d-block mediumButton mediumButton-purple text-decoration-none text-white addToCartPrepayment">
-                            Забронировать со скидкой
+                            Забронировать по предоплате
                         </a>
                     </div>
                     <div class="text-center mt-2">
