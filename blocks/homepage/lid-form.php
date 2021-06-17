@@ -10,7 +10,7 @@ if ( ! is_user_logged_in() && $_lf_dal->IsOn() ) : // Lid form is turned on and 
             <span class="discountModal__close position-absolute">
                 <i class="fas fa-times fs-1 text-primary"></i>
             </span>
-                <button class="discountModal__button rounded bg-secondary fs-4 position-absolute shadow">
+                <button class="discountModal__button rounded bg-secondary fs-5 text-nowrap position-absolute shadow">
                     Получить скидку
                 </button>
             </div>
