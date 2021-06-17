@@ -69,5 +69,4 @@ class CartDiscountMaker {
 				return $coupon;
 		}
 	}
-	
 }

@@ -1,0 +1,50 @@
+#discountModal {
+  z-index: 4;
+  background-color: rgba(210, 236, 235, 0.4);
+}
+
+.discountModal__wrapper {
+  width: 640px;
+  height: 640px;
+  background-size: contain;
+}
+
+.discountModal__button {
+  padding: 15px 40px;
+  color: #fefefe !important;
+  line-height: 130%;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .discountModal__wrapper {
+    width: 290px;
+    height: 290px;
+  }
+
+  .discountModal__button {
+    padding: 5px 15px;
+  }
+}
+.discountModal__close {
+  top: -3rem;
+  right: -2rem;
+  width: 3rem;
+  cursor: pointer;
+}
+
+#lidFormWrapper {
+  z-index: 4;
+  background-color: #d2eceb;
+}
+
+#closeLidForm {
+  top: -2rem;
+  right: -1rem;
+  width: 3rem;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=lid-form.css.map */
