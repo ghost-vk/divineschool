@@ -42,10 +42,10 @@ class AdminLids {
 						Номер телефона
 					</th>
 					<th scope="col" class="manage-column column-email sortable desc">
-						Инстаграм
+						Email
 					</th>
 					<th scope="col" class="manage-column column-role">
-						Email
+						Инстаграм
 					</th>
 					<th scope="col" class="manage-column column-posts num">
 					</th>
