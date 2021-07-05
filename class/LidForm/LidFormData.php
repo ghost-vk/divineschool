@@ -27,7 +27,7 @@ class LidFormData {
 	}
 	
 	public function IsOn() {
-		$lid_form_work_status = get_field('_prepayment_status', 'options');
+		$lid_form_work_status = get_field('lid_form_status', 'options');
 		switch ($lid_form_work_status) {
 			case ('on') : {
 				return true;

@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__  . '/../../class/LidForm/LidFormData.php';
 $_lf_dal = new \Ghost\LidForm\LidFormData();
+
 if ( ! is_user_logged_in() && $_lf_dal->IsOn() ) : // Lid form is turned on and new visitor
 	?>
     <div id="discountModal" class="d-none position-fixed top-0 bottom-0 start-0 end-0">
