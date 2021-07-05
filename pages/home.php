@@ -32,6 +32,6 @@ $project_name = get_field('project_name');
 	<?php require __DIR__ . '/../blocks/homepage/packages.php'; ?>
 </div>
 
-<?php require_once __DIR__ . '/../blocks/homepage/lid-form.php'; ?>
+<?php // require_once __DIR__ . '/../blocks/homepage/lid-form.php'; ?>
 
 <?php get_footer(); ?>
