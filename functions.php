@@ -55,4 +55,4 @@ require_once __DIR__ . '/ghost-plugins/prepayment-save-discount/prepayment-plugi
 /**
  * Run LidForm handler
  */
-require_once __DIR__  . '/class/LidForm/run.php';
+//require_once __DIR__  . '/class/LidForm/run.php';
